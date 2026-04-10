@@ -5,7 +5,7 @@ export const projectsData = [
   {
     id: 1,
     title: "WAT.ai",
-    year: "2025",
+    year: "2026",
     timeline: "Sep. 2025 - Present",
     jobTitle: "Machine Learning Engineer",
     description: "Building FORTif.ai, an AI-driven companion for senior independence.",
