@@ -23,7 +23,7 @@ const Header = () => {
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                 </svg>
               </a>
-              <a href="https://drive.google.com/drive/u/0/folders/1O7LHhmFma3WcDI3Mtllu7U_edgnTqHw-" target="_blank" rel="noopener noreferrer" className="social-link" onClick={(e) => { e.stopPropagation(); }}>
+              <a href="https://drive.google.com/file/d/1-r6NW8eMCfo5yefXxQpjn01e2rNntyt9/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="social-link" onClick={(e) => { e.stopPropagation(); }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M14,2H6A2,2 0,0,0 4,4V20A2,2 0,0,0 6,22H18A2,2 0,0,0 20,20V8L14,2M18,20H6V4H13V9H18V20M7,12H17V13.5H7V12M7,15H13V16.5H7V15Z" />
                 </svg>
@@ -49,7 +49,7 @@ const Header = () => {
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
               </svg>
             </a>
-            <a href="https://drive.google.com/drive/u/0/folders/1O7LHhmFma3WcDI3Mtllu7U_edgnTqHw-" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://drive.google.com/file/d/1-r6NW8eMCfo5yefXxQpjn01e2rNntyt9/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="social-link">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M14,2H6A2,2 0,0,0 4,4V20A2,2 0,0,0 6,22H18A2,2 0,0,0 20,20V8L14,2M18,20H6V4H13V9H18V20M7,12H17V13.5H7V12M7,15H13V16.5H7V15Z" />
               </svg>
