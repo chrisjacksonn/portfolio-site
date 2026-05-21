@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import Header from './components/Header'
 import Projects, { projectsData } from './components/Projects'
 import ProjectDetail from './components/ProjectDetail'
@@ -7,6 +7,9 @@ import LoadingScreen from './components/LoadingScreen'
 function App() {
   const [selectedProject, setSelectedProject] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  // Home scroll position saved when a project is opened, restored on back
+  const savedHomeScroll = useRef(0)
+  const pendingHomeScroll = useRef(null)
 
   // Handle loading animation
   useEffect(() => {
@@ -78,14 +81,15 @@ function App() {
   // Listen for browser back/forward button clicks
   useEffect(() => {
     const handlePopState = (event) => {
-      if (event.state === null) {
-        // Going back to homepage
-        setSelectedProject(null)
-        document.title = 'Chris Jackson'
-      } else {
+      if (event.state && event.state.project) {
         // Going to a project detail
         setSelectedProject(event.state.project)
         document.title = `Chris Jackson | ${event.state.project.title}`
+      } else {
+        // Going back to homepage
+        pendingHomeScroll.current = savedHomeScroll.current
+        setSelectedProject(null)
+        document.title = 'Chris Jackson'
       }
     }
 
@@ -96,7 +100,18 @@ function App() {
     }
   }, [])
 
+  // Restore home scroll position after returning from a project detail
+  useLayoutEffect(() => {
+    if (selectedProject === null && pendingHomeScroll.current !== null) {
+      const y = pendingHomeScroll.current
+      pendingHomeScroll.current = null
+      window.scrollTo(0, y)
+    }
+  }, [selectedProject])
+
   const handleProjectClick = (project) => {
+    // Remember where the user was on the home page
+    savedHomeScroll.current = window.scrollY
     setSelectedProject(project)
     // Custom URL slugs for specific projects
     const customSlugs = {
@@ -114,13 +129,17 @@ function App() {
   }
 
   const handleBack = () => {
-    setSelectedProject(null)
-    // Reset browser title
-    document.title = 'Chris Jackson'
-    // Scroll to top immediately before going back
-    window.scrollTo(0, 0)
-    // Go back in browser history
-    window.history.back()
+    if (window.history.state && window.history.state.project) {
+      // Came here from the home page; going back restores it
+      // via the popstate handler, including scroll position
+      window.history.back()
+    } else {
+      // Opened via a direct link, so there's no home entry in history
+      window.history.replaceState(null, '', '/')
+      pendingHomeScroll.current = 0
+      setSelectedProject(null)
+      document.title = 'Chris Jackson'
+    }
   }
 
   // Show loading screen while page is loading

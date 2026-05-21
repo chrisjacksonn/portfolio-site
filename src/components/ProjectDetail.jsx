@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 
 const ProjectDetail = ({ project, onBack }) => {
   const [showBackToTop, setShowBackToTop] = useState(false)
@@ -15,17 +15,9 @@ const ProjectDetail = ({ project, onBack }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  useEffect(() => {
-    // Disable smooth scrolling
-    document.documentElement.style.scrollBehavior = 'auto'
-    // Use requestAnimationFrame to ensure style change takes effect
-    requestAnimationFrame(() => {
-      window.scrollTo(0, 0)
-      // Restore smooth scrolling after scroll completes
-      requestAnimationFrame(() => {
-        document.documentElement.style.scrollBehavior = ''
-      })
-    })
+  // Start at the top, before first paint
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
   }, [])
 
   const getProjectLink = (projectId) => {
