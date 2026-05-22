@@ -80,7 +80,7 @@ const ProjectDetail = ({ project, onBack }) => {
             {project.id === 1 && (
               <div className="detail-meta-group">
                 <h4>Research</h4>
-                <p><a href="https://drive.google.com/drive/folders/1N_CI_vXdV0Y-Lpxu-nrTTV1v7ntEn9MA" target="_blank" rel="noopener noreferrer" className="team-member-link">Research paper ↗</a></p>
+                <p><a href="https://drive.google.com/file/d/1qWI_7aOvGYEjylcjC61IJ_aA5MMvIB11/view" target="_blank" rel="noopener noreferrer" className="team-member-link">Research paper ↗</a></p>
               </div>
             )}
           </div>
