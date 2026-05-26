@@ -23,8 +23,8 @@ function App() {
     if (document.fonts && document.fonts.ready) {
       const waitForFirstRowImages = async () => {
         const imageUrls = [
-          './images/WATaiBg (1).png',
-          './images/QQuoteBg.png'
+          './images/WATaiBg (1).webp',
+          './images/QQuoteBg.webp'
         ]
         const decodeOne = (src) => new Promise((resolve) => {
           const img = new Image()

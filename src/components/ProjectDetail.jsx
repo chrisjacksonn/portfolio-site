@@ -58,7 +58,7 @@ const ProjectDetail = ({ project, onBack }) => {
 
         <div className={`project-detail-image-container project-glow-${project.id} ${project.id === 4 ? 'aeon-detail' : ''} ${project.id === 1 ? 'wat-detail' : ''} ${project.id === 5 ? 'gradepad-detail' : ''}`}>
           <img
-            src={project.id === 4 ? './images/AeonBGprojectPage.png' : project.id === 5 ? './images/GradePadbgPP (3).png' : project.image}
+            src={project.id === 4 ? './images/AeonBGprojectPage.webp' : project.id === 5 ? './images/GradePadbgPP (3).webp' : project.image}
             alt={project.title}
             className={`project-detail-image ${project.id === 4 ? 'aeon-image' : ''} ${project.id === 1 ? 'wat-image' : ''} ${project.id === 5 ? 'gradepad-image' : ''}`}
             style={{
@@ -556,7 +556,7 @@ const ProjectDetail = ({ project, onBack }) => {
               <p>We designed a comprehensive <strong>system architecture</strong> to handle user registration, subscription management, and content access control. The architecture integrated Firebase for authentication, Stripe for payment processing, and Firestore as the primary database.</p>
               <div style={{ marginTop: '1.5rem', marginBottom: '1.5rem' }}>
                 <img
-                  src="./images/aeonArchitecture.png"
+                  src="./images/aeonArchitecture.webp"
                   alt="Aeon Architecture Diagram"
                   style={{
                     width: '100%',
