@@ -101,30 +101,58 @@ const ProjectDetail = ({ project, onBack }) => {
         {project.id === 1 && (
           <div className="about-this-role-section">
             <h4>About This Role</h4>
-            <p>When I started at Waterloo, I set myself a goal of joining one of the prestigious design teams to really experience what the university has to offer. WAT.ai is one of those teams, and I was excited when I got in as a <strong>Machine Learning Engineer</strong> working on FORTif.ai.</p>
+            <p>When I started at Waterloo, I set myself a goal of joining one of the prestigious design teams to really experience what the university has to offer. WAT.ai is one of those teams, and I was excited when I got in as a <strong>Machine Learning Engineer</strong> working on FORTif.ai. The work grew into something bigger than a team project: I co-authored our research paper, <a href="https://drive.google.com/file/d/1qWI_7aOvGYEjylcjC61IJ_aA5MMvIB11/view" target="_blank" rel="noopener noreferrer" className="team-member-link"><em>FORTif.ai: A Multimodal Platform for Safer Independent Living</em></a>, with a 13-person team spanning Waterloo, York, and Queen's, supported by WAT.ai and the UbiLab at the University of Waterloo.</p>
 
             <div className="role-subsection">
               <h5>The Project</h5>
-              <p>FORTif.ai is an AI-driven companion designed to help seniors live independently. It's a pretty ambitious project that combines proactive safety monitoring with personalized daily support. The goal is to give seniors the confidence to stay in their homes longer while giving their families peace of mind.</p>
-              <p>The system uses <strong>computer vision</strong> to continuously scan the home for potential hazards, such as spills, cluttered pathways, or tripping hazards. When it detects something, it provides clear, actionable recommendations to address the issue. At the same time, there's an AI chatbot that engages users in friendly conversations, offering medication and appointment reminders, wellness check-ins, and empathetic responses to questions.</p>
+              <p>FORTif.ai helps seniors live independently, safely, for longer. The problem is real: roughly <strong>one in five Canadians</strong> is now 65 or older, falls are the <strong>leading cause of injury-related hospitalizations</strong>, and 20-30% of seniors experience at least one fall every year. Most existing tools react after an accident happens. We built a platform that works to prevent them, integrating three subsystems:</p>
+              <div className="feature-tiles">
+                <div className="tile">
+                  <div className="chip">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" />
+                    </svg>
+                  </div>
+                  <h5>Hazard Detection</h5>
+                  <p>A vision-language model that watches camera frames for tripping hazards and sends real-time, actionable alerts</p>
+                </div>
+                <div className="tile">
+                  <div className="chip">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4A2,2 0 0,0 20,2Z" />
+                    </svg>
+                  </div>
+                  <h5>Empathetic Chatbot</h5>
+                  <p>A RAG-powered companion for reminders, wellness check-ins, and warm, contextual conversation by voice or text</p>
+                </div>
+                <div className="tile">
+                  <div className="chip">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12,3C7.58,3 4,4.79 4,7C4,9.21 7.58,11 12,11C16.42,11 20,9.21 20,7C20,4.79 16.42,3 12,3M4,9V12C4,14.21 7.58,16 12,16C16.42,16 20,14.21 20,12V9C20,11.21 16.42,13 12,13C7.58,13 4,11.21 4,9M4,14V17C4,19.21 7.58,21 12,21C16.42,21 20,19.21 20,17V14C20,16.21 16.42,18 12,18C7.58,18 4,16.21 4,14Z" />
+                    </svg>
+                  </div>
+                  <h5>Memory Management</h5>
+                  <p>A vector database of patient-specific memories that keeps conversations contextual, designed for users with cognitive impairments</p>
+                </div>
+              </div>
             </div>
 
             <div className="role-subsection">
               <h5>Hazard Detection</h5>
-              <p>One of the core features I worked on was the <strong>hazard detection model</strong>. This uses computer vision to identify potential safety risks in <strong>real-time</strong>. Training a model to recognize things like spills or cluttered pathways requires a good dataset and careful consideration of edge cases like different lighting conditions or camera angles.</p>
-              <p>We had to be careful about false positives too. You don't want to alarm users unnecessarily, but you also can't miss actual hazards. Finding that balance was challenging but really interesting from a machine learning perspective.</p>
+              <p>One of the core areas I worked on was the <strong>hazard detection system</strong>. We started by benchmarking conventional computer vision: <strong>YOLOv8</strong> ran fast on ~2 GB of RAM but was inconsistent on small, irregular hazards like scattered wires, while <strong>SAM3</strong> detected everything reliably but demands a CUDA GPU and ~25 GB of disk, which isn't realistic hardware for a senior's living room. That trade-off pushed us to a vision-language model, <strong>Gemini 2.5 Flash Lite</strong>, which analyzes frames and returns structured JSON: hazard type, location, confidence, and a severity rating from Safe to Critical, with SMS-ready alerts dispatched through <strong>Twilio</strong> and signature-based deduplication so the same rug doesn't ping you every few seconds.</p>
+              <p>The biggest lesson was how much <strong>prompt design</strong> matters. Baseline prompts kept missing rugs and toys on the floor; after iterating on walkway-focused prompts, the system reliably caught floor clutter, rolled rug edges, trailing cables, and even a pet wandering into the walking path, all without changing the model.</p>
             </div>
 
             <div className="role-subsection">
               <h5>AI Chatbot</h5>
-              <p>The chatbot component was another major part of the project. It needed to be conversational and empathetic, which meant thinking carefully about how we structured prompts and responses. The chatbot handles everything from medication reminders to wellness check-ins to answering questions about health and safety.</p>
-              <p>We also built in <strong>voice-to-text</strong> capabilities so users could interact with the system naturally, without having to type everything out. This made the whole experience more accessible and user-friendly.</p>
+              <p>The conversational side is built on a <strong>retrieval-augmented generation (RAG)</strong> pipeline: Gemini 2.5 Flash for generation, a <strong>Weaviate</strong> vector database of patient-specific memories, and hybrid semantic + keyword search for retrieval, behind a Python <strong>FastAPI</strong> backend. Follow-up questions are rewritten into standalone queries so context never gets lost, and a medical-advice guardrail redirects anything clinical to a real healthcare professional.</p>
+              <p>Everything works by <strong>voice or text</strong>, because accessibility for users at every level of tech comfort is the whole point.</p>
             </div>
 
             <div className="role-subsection">
               <h5>The Experience</h5>
-              <p>Working on WAT.ai has been a great experience. The team is talented and passionate, and working on a project with real social impact has been really motivating. Getting to work with cutting-edge AI and computer vision technology while solving a meaningful problem is exactly what I was hoping for when I joined.</p>
-              <p>It's also been great to collaborate with other disciplines, working with designers on the user experience and other engineers on the technical implementation while thinking about how to make the system actually useful for seniors. This kind of cross-functional work is really valuable.</p>
+              <p>Working on WAT.ai has been everything I hoped for when I set that goal. The team is talented and passionate, and collaborating across engineering and design on something with real social impact has been really motivating. Turning months of building into a research paper stretched me in a new way too: running negative controls, documenting failure modes honestly, and writing for an audience beyond the team.</p>
+              <p>Next up: controlled evaluations in instrumented rooms with a safety expert panel, and user studies with the people this is actually for: seniors.</p>
             </div>
           </div>
         )}
