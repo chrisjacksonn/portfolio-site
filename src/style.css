@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -850,10 +850,12 @@ body {
 }
 
 .detail-meta h4 {
-  font-size: 0.95rem;
-  color: #ffffff;
-  font-weight: 700;
-  margin-bottom: 0.35rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
   text-align: left;
 }
 
@@ -881,9 +883,12 @@ body {
 }
 
 .detail-meta-right h4 {
-  color: #ffffff;
-  font-weight: 700;
-  margin-bottom: 0.35rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 0.45rem;
   text-align: left;
 }
 
@@ -1058,44 +1063,58 @@ body {
 }
 
 .feature-tiles {
+  counter-reset: tile;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-  margin: 1rem 0 1.25rem 0;
+  gap: 1.75rem 2.5rem;
+  margin: 1.75rem 0 2rem 0;
 }
 .feature-tiles .tile {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  padding: 1rem;
-  transition: none;
   text-align: left;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1.1rem 0 0 0;
+  transition: border-color 0.3s ease;
 }
 .feature-tiles .tile:hover {
-  background: transparent;
-  border: none;
-  transform: none;
+  border-top-color: rgba(255, 255, 255, 0.45);
+}
+.feature-tiles .tile::before {
+  counter-increment: tile;
+  content: counter(tile, decimal-leading-zero);
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.6rem;
+  transition: color 0.3s ease;
+}
+.feature-tiles .tile:hover::before {
+  color: rgba(255, 255, 255, 0.75);
 }
 .feature-tiles .chip {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 36px;
-  height: 36px;
-  border-radius: 0;
-  background: transparent;
-  border: none;
-  margin-bottom: 0.5rem;
+  display: none;
 }
-.feature-tiles h5 {
+.feature-tiles .tile h5 {
   color: #ffffff;
-  margin: 0 0 0.25rem 0;
+  margin: 0 0 0.35rem 0;
   font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
-.feature-tiles p {
-  color: #bdbdbd;
+.feature-tiles .tile p {
+  color: #a8a8a8;
   margin: 0;
   font-size: 0.9rem;
+  line-height: 1.6;
+}
+@media (max-width: 600px) {
+  .feature-tiles {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
 }
 
 .steps-rail {
@@ -1235,10 +1254,12 @@ body {
 }
 
 .about-this-role-section h4 {
-  font-size: 0.95rem;
-  color: #ffffff;
-  font-weight: 700;
-  margin-bottom: 0.35rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
   text-align: left;
 }
 
@@ -1268,14 +1289,15 @@ body {
 }
 
 .role-subsection {
-  margin-top: 1.5rem;
+  margin-top: 2.25rem;
 }
 
 .role-subsection h5 {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #ffffff;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
   text-align: left;
 }
 
