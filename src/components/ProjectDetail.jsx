@@ -101,7 +101,7 @@ const ProjectDetail = ({ project, onBack }) => {
         {project.id === 1 && (
           <div className="about-this-role-section">
             <h4>About This Role</h4>
-            <p>When I started at Waterloo, I set myself a goal of joining one of the prestigious design teams to really experience what the university has to offer. WAT.ai is one of those teams, and I was excited when I got in as a <strong>Machine Learning Engineer</strong> working on FORTif.ai. The work grew into something bigger than a team project: I co-authored our research paper, <a href="https://drive.google.com/file/d/1qWI_7aOvGYEjylcjC61IJ_aA5MMvIB11/view" target="_blank" rel="noopener noreferrer" className="team-member-link"><em>FORTif.ai: A Multimodal Platform for Safer Independent Living</em></a>, with a 13-person team spanning Waterloo, York, and Queen's, supported by WAT.ai and the UbiLab at the University of Waterloo.</p>
+            <p>I'm a <strong>Machine Learning Engineer</strong> on WAT.ai, one of Waterloo's student-run AI design teams, working on FORTif.ai. The work grew into a research paper, <a href="https://drive.google.com/file/d/1qWI_7aOvGYEjylcjC61IJ_aA5MMvIB11/view" target="_blank" rel="noopener noreferrer" className="team-member-link"><em>FORTif.ai: A Multimodal Platform for Safer Independent Living</em></a>, which I co-authored with a 13-person team spanning Waterloo, York, and Queen's, supported by WAT.ai and the UbiLab at the University of Waterloo.</p>
 
             <div className="role-subsection">
               <h5>The Project</h5>
@@ -151,8 +151,7 @@ const ProjectDetail = ({ project, onBack }) => {
 
             <div className="role-subsection">
               <h5>The Experience</h5>
-              <p>Working on WAT.ai has been everything I hoped for when I set that goal. The team is talented and passionate, and collaborating across engineering and design on something with real social impact has been really motivating. Turning months of building into a research paper stretched me in a new way too: running negative controls, documenting failure modes honestly, and writing for an audience beyond the team.</p>
-              <p>Next up: controlled evaluations in instrumented rooms with a safety expert panel, and user studies with the people this is actually for: seniors.</p>
+              <p>This has been a different kind of project from a typical internship: open research questions instead of a spec, and a big cross-university team to coordinate with. Turning months of building into a paper meant running negative controls, documenting failure modes honestly, and writing for an audience beyond the team.</p>
             </div>
           </div>
         )}
