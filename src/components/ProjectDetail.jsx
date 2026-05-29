@@ -183,8 +183,7 @@ const ProjectDetail = ({ project, onBack }) => {
 
             <div className="role-subsection">
               <h5>The Experience</h5>
-              <p>Coming back to QQuote for a second term was really rewarding. I already knew the team and the product, which meant I could jump into more complex projects right away. The combination of product management experience from my first term and technical work from this term gave me a much more complete picture of how software gets built.</p>
-              <p>Working on API development taught me a lot about <strong>system design</strong> and thinking about how different parts of a system communicate with each other. The database optimization work gave me deep experience with performance tuning and understanding how data structures impact application speed. And optimizing the email pipeline showed me how to identify bottlenecks and improve system efficiency at scale.</p>
+              <p>Coming back for a second term meant I already knew the team and the product, so I could jump into more complex projects right away. Having done product management in my first term and technical work in this one gave me a much more complete picture of how software gets built.</p>
             </div>
           </div>
         )}
@@ -192,7 +191,7 @@ const ProjectDetail = ({ project, onBack }) => {
         {project.id === 6 && (
           <div className="about-this-role-section">
             <h4>About This Role</h4>
-            <p>I spent my first co-op term at QQuote working with <a href="https://www.linkedin.com/in/nathan-hufnagel-a3b5bb35/" target="_blank" rel="noopener noreferrer" className="team-member-link">Nathan Hufnagel</a>, and it was a great introduction to <strong>product management</strong> and the <strong>full product lifecycle</strong>. I got to work across a bunch of different areas, from designing features to testing them. The team was awesome, and I liked it enough that I decided to come back for another term, this time focusing more on the technical side of things.</p>
+            <p>I spent my first co-op term at QQuote working with <a href="https://www.linkedin.com/in/nathan-hufnagel-a3b5bb35/" target="_blank" rel="noopener noreferrer" className="team-member-link">Nathan Hufnagel</a>, and it was a great introduction to <strong>product management</strong> and the <strong>full product lifecycle</strong>. I got to work across a bunch of different areas, from designing features to testing them. I liked it enough that I came back for another term, this time focusing more on the technical side of things.</p>
 
             <div className="role-subsection">
               <h5>What I Worked On</h5>
@@ -257,7 +256,7 @@ const ProjectDetail = ({ project, onBack }) => {
 
             <div className="role-subsection">
               <h5>Reflection</h5>
-              <p>I really enjoyed my time at QQuote. The team was amazing, and I got a lot of opportunities to take real ownership over my work. Getting to explore product management, design, and testing in a single role was exactly what I was looking for.Even though this was my first co-op, I felt like I made a real impact. Working across the full product lifecycle taught me so much about how good software actually gets built, and it set me up perfectly to come back for a second term focused on the technical side.</p>
+              <p>This was my first co-op, and I got real ownership over my work across product management, design, and testing. Working the full product lifecycle showed me how good software actually gets built, and it convinced me to come back for a second term focused on the technical side.</p>
             </div>
           </div>
         )}
@@ -396,7 +395,7 @@ const ProjectDetail = ({ project, onBack }) => {
         {project.id === 3 && (
           <div className="about-this-role-section">
             <h4>About This Role</h4>
-            <p>Over the summer of 2025, I joined a small team at Encore Financial, working with <a href="https://www.linkedin.com/in/hasanjee/" target="_blank" rel="noopener noreferrer" className="team-member-link">Bilal Hasanjee</a> to build an <strong>AI-powered financial platform</strong>. We were building something pretty ambitious: a full suite for investment research, portfolio management, and wealth tracking. Working remotely with this team gave me a ton of ownership and let me dive deep into both frontend and backend work.</p>
+            <p>Over the summer of 2025, I joined a small team at Encore Financial, working with <a href="https://www.linkedin.com/in/hasanjee/" target="_blank" rel="noopener noreferrer" className="team-member-link">Bilal Hasanjee</a> to build an <strong>AI-powered financial platform</strong>. We were building something pretty ambitious: a full suite for investment research, portfolio management, and wealth tracking. Working remotely with a small team, I took on both frontend and backend work.</p>
 
             <div className="role-subsection">
               <h5>What I Built</h5>
@@ -443,7 +442,7 @@ const ProjectDetail = ({ project, onBack }) => {
             <div className="role-subsection">
               <h5>Building the Dashboard</h5>
               <p>One of the bigger challenges was building a dashboard that could handle real-time financial data without feeling laggy. I spent a lot of time optimizing how we fetched and displayed market data, using React hooks to manage state efficiently and implementing proper loading states.</p>
-              <p>The portfolio tracking feature needed to show complex investment data in a way that made sense at a glance. I used <strong>Chart.js</strong> to create interactive visualizations that could drill down into specific time periods or asset classes. Getting the balance between detail and simplicity was tricky, but super rewarding once it clicked.</p>
+              <p>The portfolio tracking feature needed to show complex investment data in a way that made sense at a glance. I used <strong>Chart.js</strong> to create interactive visualizations that could drill down into specific time periods or asset classes. The tricky part was balancing detail with simplicity.</p>
             </div>
 
             <div className="role-subsection">
@@ -526,7 +525,7 @@ const ProjectDetail = ({ project, onBack }) => {
 
             <div className="role-subsection">
               <h5>The Experience</h5>
-              <p>Working in fintech taught me a lot about the unique challenges of the finance industry. I integrated market data APIs and worked with real-time financial data streams, which meant dealing with latency, rate limits, and ensuring data accuracy. I also had to think carefully about regulatory compliance, security protocols, and proper data handling for sensitive financial information. Building features that handled real money and user investments required attention to detail I hadn't experienced before, and it was great practice for building production-ready software in a highly regulated industry.</p>
+              <p>I integrated market data APIs and worked with real-time financial data streams, which meant dealing with latency, rate limits, and data accuracy. I also had to think carefully about regulatory compliance, security protocols, and proper handling of sensitive financial information. Features that touch real money and user investments demand a level of attention to detail I hadn't needed anywhere else.</p>
             </div>
           </div>
         )}
@@ -534,7 +533,7 @@ const ProjectDetail = ({ project, onBack }) => {
         {project.id === 4 && (
           <div className="about-this-role-section">
             <h4>About This Role</h4>
-            <p>I spent the summer working at Aeon Stellar Commerce on StellaEats, Canada's first AI-powered food marketplace focused on dietary needs. I worked closely with <a href="https://www.linkedin.com/in/jayden-ferrer/" target="_blank" rel="noopener noreferrer" className="team-member-link">Jayden Ferrer</a>, under <a href="https://www.linkedin.com/in/primiecegnar/" target="_blank" rel="noopener noreferrer" className="team-member-link">Primie Cegnar</a>, to build out the paywall system. Working with payment infrastructure and subscription logic was both challenging and rewarding.</p>
+            <p>I spent the summer working at Aeon Stellar Commerce on StellaEats, Canada's first AI-powered food marketplace focused on dietary needs. I worked closely with <a href="https://www.linkedin.com/in/jayden-ferrer/" target="_blank" rel="noopener noreferrer" className="team-member-link">Jayden Ferrer</a>, under <a href="https://www.linkedin.com/in/primiecegnar/" target="_blank" rel="noopener noreferrer" className="team-member-link">Primie Cegnar</a>, to build out the paywall system.</p>
 
             <div className="role-subsection">
               <h5>What I Built</h5>
@@ -609,8 +608,7 @@ const ProjectDetail = ({ project, onBack }) => {
 
             <div className="role-subsection">
               <h5>The Experience</h5>
-              <p>Working at Aeon was a great experience. The team was small, which meant I had a lot of ownership and got to see how decisions were made quickly. Working directly with Primie gave me real insight into product strategy and how technical decisions impact the business.</p>
-              <p>Working with payment infrastructure and subscription systems taught me to work within platform constraints and deal with complex integrations. I learned a lot about finding creative solutions when things don't go exactly as planned, and overall got a much better sense of what it takes to bring new features to life. .</p>
+              <p>The team at Aeon was small, so I had a lot of ownership and saw how decisions got made quickly. Working directly with Primie gave me real insight into product strategy and how technical decisions impact the business.</p>
             </div>
           </div>
         )}
