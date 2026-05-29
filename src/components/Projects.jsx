@@ -34,11 +34,11 @@ export const projectsData = [
     id: 2,
     title: "QQuote",
     year: "2025",
-    timeline: "Sep. 2025 - Dec. 2025",
+    timeline: "Jan. - Apr. 2025\nSep. - Dec. 2025",
     jobTitle: "Software Engineering Intern",
-    description: "Return internship focused on API development and QA automation.",
+    description: "Two internships spanning software engineering, QA automation, and product management.",
     image: "./images/QQuoteBg.webp",
-    tech: "Postman, QA Automation, PHP, Swagger"
+    tech: "PHP, SQL, Postman, Swagger, QA Automation, Figma, Product Management, Power BI, RUM Tracking"
   },
   {
     id: 3,
@@ -59,16 +59,6 @@ export const projectsData = [
     description: "Developed subscription paywall system for Canada's first AI-powered dietary marketplace.",
     image: "./images/AeonBGprojectPage.webp",
     tech: "React.js, Stripe, Firebase, Figma, API Integration, Payment Systems, Subscription Management, UX Design"
-  },
-  {
-    id: 6,
-    title: "QQuote",
-    year: "2025",
-    timeline: "Jan. 2025 - Apr. 2025",
-    jobTitle: "Special Projects Engineering Assistant",
-    description: "Co-op term creating feature specifications, designed wireframes and mockups.",
-    image: "./images/QQuoteBg.webp",
-    tech: "Figma, Product Management, Postman, Power BI, SQL, PHP, RUM Tracking"
   }
 ]
 

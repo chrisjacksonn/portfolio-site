@@ -66,11 +66,13 @@ function App() {
   useEffect(() => {
     const path = window.location.pathname.replace(/^\/+/, '')
     if (!path) return
-    const customSlugs = { 2: 'qquote2', 3: 'encore-financial', 4: 'aeon', 6: 'qquote1' }
+    const customSlugs = { 2: 'qquote', 3: 'encore-financial', 4: 'aeon' }
     const slugify = (title) => title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+    // Old links to the two separate QQuote pages land on the merged one
+    const normalizedPath = (path === 'qquote1' || path === 'qquote2') ? 'qquote' : path
     const match = projectsData.find(p => {
       const expected = customSlugs[p.id] || slugify(p.title)
-      return expected === path
+      return expected === normalizedPath
     })
     if (match) {
       setSelectedProject(match)
@@ -115,10 +117,9 @@ function App() {
     setSelectedProject(project)
     // Custom URL slugs for specific projects
     const customSlugs = {
-      2: 'qquote2', // QQuote Software Engineering
+      2: 'qquote', // QQuote (both 2025 terms)
       3: 'encore-financial', // Encore Financial Ltd
-      4: 'aeon', // Aeon Stellar Commerce
-      6: 'qquote1' // QQuote Special Projects
+      4: 'aeon' // Aeon Stellar Commerce
     }
     // Create URL-friendly slug from project title
     const urlSlug = customSlugs[project.id] || project.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')

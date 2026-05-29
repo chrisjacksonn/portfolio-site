@@ -27,7 +27,6 @@ const ProjectDetail = ({ project, onBack }) => {
       3: 'https://encorefinancialgroup.ca/', // Encore
       4: 'https://aeonstellar.co/', // Aeon
       2: 'https://qquote.com/', // QQuote
-      6: 'https://qquote.com/', // QQuote Special
       5: 'https://gradepad.netlify.app/' // GradePad
     }
     return links[projectId] || '#'
@@ -73,7 +72,7 @@ const ProjectDetail = ({ project, onBack }) => {
           <div className="detail-meta-left">
             <div className="detail-meta-group">
               <h4>Timeline</h4>
-              <p>{project.timeline || project.year}</p>
+              <p style={{ whiteSpace: 'pre-line' }}>{project.timeline || project.year}</p>
             </div>
             <div className="detail-meta-group">
               <h4>Role</h4>
@@ -170,39 +169,9 @@ const ProjectDetail = ({ project, onBack }) => {
         {project.id === 2 && (
           <div className="about-this-role-section">
             <h4>About This Role</h4>
-            <p>I came back to QQuote for a second term after really enjoying my first co-op there. This time, I wanted to focus on the software development side of things. Having done product management work in my first term, I was excited to get more hands-on with the code and apply what I'd learned about user needs to the technical implementation.</p>
+            <p>I did two internships at QQuote in 2025. The winter term was my first co-op, working with <a href="https://www.linkedin.com/in/nathan-hufnagel-a3b5bb35/" target="_blank" rel="noopener noreferrer" className="team-member-link">Nathan Hufnagel</a> on <strong>product management</strong> and the <strong>full product lifecycle</strong>, from designing features to testing them. I liked it enough that I came back in the fall to get hands-on with the code, focused on <strong>API development</strong>, <strong>database optimization</strong>, and <strong>QA automation</strong>.</p>
 
-            <div className="role-subsection">
-              <h5>Email Pipeline Optimization</h5>
-              <p>The email system had a critical issue: cron jobs would only start generating emails at the scheduled send time, meaning emails that were supposed to go out at 10 AM wouldn't finish until 4 PM. Dealerships were receiving their reports hours late, which was unacceptable for time-sensitive business data.</p>
-              <p>I helped solve this by separating the preparation and sending phases. I helped implement a dedicated <strong>cron job trigger</strong> that would preload all required email data well before the scheduled send time. When the target time arrived, the system would simply send the preloaded emails rather than building them on the spot.</p>
-              <p>This architectural change, combined with further optimizations to the generation process itself, resulted in <strong>57.8% faster</strong> end-to-end processing times. Email generation was reduced from 3 hours 50 minutes to 1 hour 37 minutes. More importantly, emails now send in under 1 minute once generated, ensuring dealerships receive their reports on time.</p>
-            </div>
-
-            <div className="role-subsection">
-              <h5>Database Optimization</h5>
-              <p>Two critical graphs in the Reporter platform were taking up to 80 seconds to load: the <strong>week-over-week quoting graph</strong> and the <strong>potential cumulative revenue graph</strong>. These graphs were querying massive tables and processing huge amounts of unnecessary data, making the email previews nearly unusable.</p>
-              <p>I helped re-architect the database schema by creating dedicated, optimized tables containing only the required parameters for each graph. For the week-over-week quoting graph, I helped create a dedicated table with only the essential data fields needed for that visualization. For the potential cumulative revenue graph, I helped create another optimized table with date fields and specific revenue breakdowns by category.</p>
-              <p>I also helped optimize the <strong>SQL</strong> queries and <strong>PHP</strong> code that interacted with these tables. The results were dramatic: the week-over-week quoting graph improved by an average of <strong>96.33%</strong> (from 42.78s to 1.11s for the most time-intensive cases), and the potential cumulative revenue graph improved by an average of <strong>98.73%</strong> (from 79.73s to 0.74s). These optimizations transformed the email preview experience from frustratingly slow to near-instantaneous.</p>
-            </div>
-
-            <div className="role-subsection">
-              <h5>API Development</h5>
-              <p>I helped lead the design of <strong>custom API contracts</strong> for a client-facing system, defining endpoints and validation rules to enable seamless integration with internal services. This work involved creating detailed specifications that defined the endpoints, request/response formats, authentication requirements, and error handling.</p>
-              <p>This was great practice thinking about <strong>API design</strong> from a developer's perspective. I had to consider things like: What data do clients actually need? How should we structure the responses to be useful but not overwhelming? What edge cases do we need to handle? Having the product management experience from my first term helped me think through these questions with the end user in mind.</p>
-            </div>
-
-            <div className="role-subsection">
-              <h5>The Experience</h5>
-              <p>Coming back for a second term meant I already knew the team and the product, so I could jump into more complex projects right away. Having done product management in my first term and technical work in this one gave me a much more complete picture of how software gets built.</p>
-            </div>
-          </div>
-        )}
-
-        {project.id === 6 && (
-          <div className="about-this-role-section">
-            <h4>About This Role</h4>
-            <p>I spent my first co-op term at QQuote working with <a href="https://www.linkedin.com/in/nathan-hufnagel-a3b5bb35/" target="_blank" rel="noopener noreferrer" className="team-member-link">Nathan Hufnagel</a>, and it was a great introduction to <strong>product management</strong> and the <strong>full product lifecycle</strong>. I got to work across a bunch of different areas, from designing features to testing them. I liked it enough that I came back for another term, this time focusing more on the technical side of things.</p>
+            <h4 style={{ marginTop: '2.75rem' }}>Winter Term</h4>
 
             <div className="role-subsection">
               <h5>What I Worked On</h5>
@@ -265,9 +234,31 @@ const ProjectDetail = ({ project, onBack }) => {
               </ul>
             </div>
 
+            <h4 style={{ marginTop: '2.75rem' }}>Fall Term</h4>
+
             <div className="role-subsection">
-              <h5>Reflection</h5>
-              <p>This was my first co-op, and I got real ownership over my work across product management, design, and testing. Working the full product lifecycle showed me how good software actually gets built, and it convinced me to come back for a second term focused on the technical side.</p>
+              <h5>Email Pipeline Optimization</h5>
+              <p>The email system had a critical issue: cron jobs would only start generating emails at the scheduled send time, meaning emails that were supposed to go out at 10 AM wouldn't finish until 4 PM. Dealerships were receiving their reports hours late, which was unacceptable for time-sensitive business data.</p>
+              <p>I helped solve this by separating the preparation and sending phases. I helped implement a dedicated <strong>cron job trigger</strong> that would preload all required email data well before the scheduled send time. When the target time arrived, the system would simply send the preloaded emails rather than building them on the spot.</p>
+              <p>This architectural change, combined with further optimizations to the generation process itself, resulted in <strong>57.8% faster</strong> end-to-end processing times. Email generation was reduced from 3 hours 50 minutes to 1 hour 37 minutes. More importantly, emails now send in under 1 minute once generated, ensuring dealerships receive their reports on time.</p>
+            </div>
+
+            <div className="role-subsection">
+              <h5>Database Optimization</h5>
+              <p>Two critical graphs in the Reporter platform were taking up to 80 seconds to load: the <strong>week-over-week quoting graph</strong> and the <strong>potential cumulative revenue graph</strong>. These graphs were querying massive tables and processing huge amounts of unnecessary data, making the email previews nearly unusable.</p>
+              <p>I helped re-architect the database schema by creating dedicated, optimized tables containing only the required parameters for each graph. For the week-over-week quoting graph, I helped create a dedicated table with only the essential data fields needed for that visualization. For the potential cumulative revenue graph, I helped create another optimized table with date fields and specific revenue breakdowns by category.</p>
+              <p>I also helped optimize the <strong>SQL</strong> queries and <strong>PHP</strong> code that interacted with these tables. The results were dramatic: the week-over-week quoting graph improved by an average of <strong>96.33%</strong> (from 42.78s to 1.11s for the most time-intensive cases), and the potential cumulative revenue graph improved by an average of <strong>98.73%</strong> (from 79.73s to 0.74s). These optimizations transformed the email preview experience from frustratingly slow to near-instantaneous.</p>
+            </div>
+
+            <div className="role-subsection">
+              <h5>API Development</h5>
+              <p>I helped lead the design of <strong>custom API contracts</strong> for a client-facing system, defining endpoints and validation rules to enable seamless integration with internal services. This work involved creating detailed specifications that defined the endpoints, request/response formats, authentication requirements, and error handling.</p>
+              <p>This was great practice thinking about <strong>API design</strong> from a developer's perspective. I had to consider things like: What data do clients actually need? How should we structure the responses to be useful but not overwhelming? What edge cases do we need to handle? Having the product management experience from my first term helped me think through these questions with the end user in mind.</p>
+            </div>
+
+            <div className="role-subsection">
+              <h5>The Experience</h5>
+              <p>QQuote gave me both my first co-op and my second. The winter term meant real ownership across product management, design, and testing; coming back in the fall, I already knew the team and the product, so I could jump straight into more complex engineering work. Between the two terms I saw the whole picture of how software gets built, from specs and wireframes to APIs and database optimization.</p>
             </div>
           </div>
         )}

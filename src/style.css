@@ -260,12 +260,6 @@ body {
     0 0 20px 4px rgba(11, 102, 146, 0.6), 0 0 12px 2px rgba(11, 102, 146, 0.45);
 }
 
-.project-6 .project-image:hover {
-  /* QQuote Special */
-  box-shadow: 0 0 40px 8px rgba(218, 108, 53, 0.65),
-    0 0 20px 4px rgba(218, 108, 53, 0.5), 0 0 12px 2px rgba(218, 108, 53, 0.35);
-}
-
 .project-card:hover .project-title {
   text-decoration: underline;
   transition: text-decoration 0.3s ease;
@@ -303,12 +297,6 @@ body {
   /* GradePad */
   box-shadow: 0 0 40px 8px rgba(11, 102, 146, 0.85),
     0 0 20px 4px rgba(11, 102, 146, 0.6), 0 0 12px 2px rgba(11, 102, 146, 0.45);
-}
-
-.project-6:has(.project-title:hover) .project-image {
-  /* QQuote Special */
-  box-shadow: 0 0 40px 8px rgba(218, 108, 53, 0.65),
-    0 0 20px 4px rgba(218, 108, 53, 0.5), 0 0 12px 2px rgba(218, 108, 53, 0.35);
 }
 
 .project-image img {
@@ -606,12 +594,6 @@ body {
       0 0 10px 1.5px rgba(11, 102, 146, 0.45);
   }
 
-  .project-6 .project-image:hover {
-    box-shadow: 0 0 32px 6px rgba(218, 108, 53, 0.65),
-      0 0 16px 3px rgba(218, 108, 53, 0.5),
-      0 0 10px 1.5px rgba(218, 108, 53, 0.35);
-  }
-
   .project-1:has(.project-title:hover) .project-image {
     box-shadow: 0 0 32px 6px rgba(255, 206, 26, 0.65);
   }
@@ -638,12 +620,6 @@ body {
     box-shadow: 0 0 32px 6px rgba(11, 102, 146, 0.85),
       0 0 16px 3px rgba(11, 102, 146, 0.6),
       0 0 10px 1.5px rgba(11, 102, 146, 0.45);
-  }
-
-  .project-6:has(.project-title:hover) .project-image {
-    box-shadow: 0 0 32px 6px rgba(218, 108, 53, 0.65),
-      0 0 16px 3px rgba(218, 108, 53, 0.5),
-      0 0 10px 1.5px rgba(218, 108, 53, 0.35);
   }
 
   .project-detail-image-container.project-glow-1 {
@@ -674,11 +650,6 @@ body {
       0 0 10px 1.5px rgba(11, 102, 146, 0.45);
   }
 
-  .project-detail-image-container.project-glow-6 {
-    box-shadow: 0 0 32px 6px rgba(218, 108, 53, 0.65),
-      0 0 16px 3px rgba(218, 108, 53, 0.5),
-      0 0 10px 1.5px rgba(218, 108, 53, 0.35);
-  }
 }
 
 /* Project Detail Page Styles */
@@ -909,9 +880,8 @@ body {
   }
 }
 
-/* QQuote projects (id 2, 6): lower the meta section */
-.project-detail-content:has(.project-glow-2) .detail-meta,
-.project-detail-content:has(.project-glow-6) .detail-meta {
+/* QQuote (id 2): lower the meta section */
+.project-detail-content:has(.project-glow-2) .detail-meta {
   margin-top: 5rem;
 }
 
@@ -1451,11 +1421,6 @@ body {
   .gradepad-image {
     transform: scale(1) !important;
   }
-}
-
-.project-detail-image-container.project-glow-6 {
-  box-shadow: 0 0 40px 8px rgba(218, 108, 53, 0.65),
-    0 0 20px 4px rgba(218, 108, 53, 0.5), 0 0 12px 2px rgba(218, 108, 53, 0.35); /* DA6C35 for QQuote Special */
 }
 
 /* Footer Styles */
