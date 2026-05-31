@@ -158,7 +158,7 @@ function App() {
       <Projects onProjectClick={handleProjectClick} />
       <footer className="footer">
         <div className="footer-content">
-          <p>&copy; 2025 Chris Jackson</p>
+          <p>&copy; {new Date().getFullYear()} Chris Jackson</p>
         </div>
       </footer>
     </div>
