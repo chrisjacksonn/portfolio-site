@@ -169,7 +169,7 @@ const ProjectDetail = ({ project, onBack }) => {
         {project.id === 2 && (
           <div className="about-this-role-section">
             <h4>About This Role</h4>
-            <p>I did two internships at QQuote in 2025. The winter term was my first co-op, working with <a href="https://www.linkedin.com/in/nathan-hufnagel-a3b5bb35/" target="_blank" rel="noopener noreferrer" className="team-member-link">Nathan Hufnagel</a> on <strong>product management</strong> and the <strong>full product lifecycle</strong>, from designing features to testing them. I liked it enough that I came back in the fall to get hands-on with the code, focused on <strong>API development</strong>, <strong>database optimization</strong>, and <strong>QA automation</strong>.</p>
+            <p>I did two internships at QQuote in 2025. In the winter term I worked with <a href="https://www.linkedin.com/in/nathan-hufnagel-a3b5bb35/" target="_blank" rel="noopener noreferrer" className="team-member-link">Nathan Hufnagel</a> on <strong>product management</strong> and the <strong>full product lifecycle</strong>, from designing features to testing them. I liked it enough that I came back in the fall to get hands-on with the code, focused on <strong>API development</strong>, <strong>database optimization</strong>, and <strong>QA automation</strong>.</p>
 
             <h4 style={{ marginTop: '2.75rem' }}>Winter Term</h4>
 
@@ -258,7 +258,7 @@ const ProjectDetail = ({ project, onBack }) => {
 
             <div className="role-subsection">
               <h5>The Experience</h5>
-              <p>QQuote gave me both my first co-op and my second. The winter term meant real ownership across product management, design, and testing; coming back in the fall, I already knew the team and the product, so I could jump straight into more complex engineering work. Between the two terms I saw the whole picture of how software gets built, from specs and wireframes to APIs and database optimization.</p>
+              <p>The winter term gave me real ownership across product management, design, and testing; coming back in the fall, I already knew the team and the product, so I could jump straight into more complex engineering work. Between the two terms I saw the whole picture of how software gets built, from specs and wireframes to APIs and database optimization.</p>
             </div>
           </div>
         )}
