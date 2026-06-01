@@ -183,7 +183,7 @@ const ProjectDetail = ({ project, onBack }) => {
                     </svg>
                   </div>
                   <h5>Feature Specifications</h5>
-                  <p>Wrote detailed feature specs and requirements to guide the development team through the product development process</p>
+                  <p>Wrote feature specs and requirements that guided what the development team built</p>
                 </div>
                 <div className="tile">
                   <div className="chip">
@@ -192,7 +192,7 @@ const ProjectDetail = ({ project, onBack }) => {
                     </svg>
                   </div>
                   <h5>Design & Wireframes</h5>
-                  <p>Created wireframes and mockups to visualize new product ideas with focus on user experience and design</p>
+                  <p>Wireframes and mockups in Figma that let the team see product ideas before building them</p>
                 </div>
                 <div className="tile">
                   <div className="chip">
@@ -201,7 +201,7 @@ const ProjectDetail = ({ project, onBack }) => {
                     </svg>
                   </div>
                   <h5>QA Testing</h5>
-                  <p>QA testing across different scenarios to ensure features worked as expected and bugs were caught early</p>
+                  <p>Tested features across scenarios so bugs got caught before customers found them</p>
                 </div>
                 <div className="tile">
                   <div className="chip">
@@ -210,7 +210,7 @@ const ProjectDetail = ({ project, onBack }) => {
                     </svg>
                   </div>
                   <h5>Documentation</h5>
-                  <p>Wrote internal documentation to help with team processes and future project development</p>
+                  <p>Internal documentation for team processes and the projects that came after mine</p>
                 </div>
               </div>
             </div>
@@ -239,21 +239,21 @@ const ProjectDetail = ({ project, onBack }) => {
             <div className="role-subsection">
               <h5>Email Pipeline Optimization</h5>
               <p>The email system had a critical issue: cron jobs would only start generating emails at the scheduled send time, meaning emails that were supposed to go out at 10 AM wouldn't finish until 4 PM. Dealerships were receiving their reports hours late, which was unacceptable for time-sensitive business data.</p>
-              <p>I helped solve this by separating the preparation and sending phases. I helped implement a dedicated <strong>cron job trigger</strong> that would preload all required email data well before the scheduled send time. When the target time arrived, the system would simply send the preloaded emails rather than building them on the spot.</p>
-              <p>This architectural change, combined with further optimizations to the generation process itself, resulted in <strong>57.8% faster</strong> end-to-end processing times. Email generation was reduced from 3 hours 50 minutes to 1 hour 37 minutes. More importantly, emails now send in under 1 minute once generated, ensuring dealerships receive their reports on time.</p>
+              <p>We solved it by separating the preparation and sending phases: a dedicated <strong>cron job trigger</strong> I helped build preloads all the email data ahead of the scheduled send time, so when the target time arrives the system just sends what's already prepared instead of building it on the spot.</p>
+              <p>That change, plus further optimizations to the generation process itself, made end-to-end processing <strong>57.8% faster</strong>: email generation dropped from 3 hours 50 minutes to 1 hour 37 minutes, and once generated, emails now go out in under a minute, so dealerships get their reports on time.</p>
             </div>
 
             <div className="role-subsection">
               <h5>Database Optimization</h5>
               <p>Two critical graphs in the Reporter platform were taking up to 80 seconds to load: the <strong>week-over-week quoting graph</strong> and the <strong>potential cumulative revenue graph</strong>. These graphs were querying massive tables and processing huge amounts of unnecessary data, making the email previews nearly unusable.</p>
-              <p>I helped re-architect the database schema by creating dedicated, optimized tables containing only the required parameters for each graph. For the week-over-week quoting graph, I helped create a dedicated table with only the essential data fields needed for that visualization. For the potential cumulative revenue graph, I helped create another optimized table with date fields and specific revenue breakdowns by category.</p>
-              <p>I also helped optimize the <strong>SQL</strong> queries and <strong>PHP</strong> code that interacted with these tables. The results were dramatic: the week-over-week quoting graph improved by an average of <strong>96.33%</strong> (from 42.78s to 1.11s for the most time-intensive cases), and the potential cumulative revenue graph improved by an average of <strong>98.73%</strong> (from 79.73s to 0.74s). These optimizations transformed the email preview experience from frustratingly slow to near-instantaneous.</p>
+              <p>I helped re-architect the schema around purpose-built tables: one holding only the fields the week-over-week graph actually renders, another with the date fields and per-category revenue breakdowns behind the cumulative revenue graph. We also tuned the <strong>SQL</strong> queries and <strong>PHP</strong> code sitting on top of them.</p>
+              <p>The results were dramatic: the week-over-week quoting graph improved by an average of <strong>96.33%</strong> (42.78s down to 1.11s in the worst cases), and the potential cumulative revenue graph by <strong>98.73%</strong> (79.73s down to 0.74s).</p>
             </div>
 
             <div className="role-subsection">
               <h5>API Development</h5>
-              <p>I helped lead the design of <strong>custom API contracts</strong> for a client-facing system, defining endpoints and validation rules to enable seamless integration with internal services. This work involved creating detailed specifications that defined the endpoints, request/response formats, authentication requirements, and error handling.</p>
-              <p>This was great practice thinking about <strong>API design</strong> from a developer's perspective. I had to consider things like: What data do clients actually need? How should we structure the responses to be useful but not overwhelming? What edge cases do we need to handle? Having the product management experience from my first term helped me think through these questions with the end user in mind.</p>
+              <p>I helped lead the design of <strong>custom API contracts</strong> for a client-facing system: endpoint definitions, request/response formats, validation rules, authentication requirements, and error handling, all specified in enough detail that internal services could build against them without guesswork.</p>
+              <p>It forced me to think about <strong>API design</strong> from the client's side. What data do clients actually need? How should responses be structured to be useful but not overwhelming? What edge cases matter? The product management experience from the winter helped me answer those questions with the end user in mind.</p>
             </div>
 
             <div className="role-subsection">
@@ -266,7 +266,7 @@ const ProjectDetail = ({ project, onBack }) => {
         {project.id === 5 && (
           <div className="about-this-role-section">
             <h4>About This Project</h4>
-            <p>GradePad started as a fix for a real pain: existing grade calculators didn’t save anything and made it hard to manage multiple courses. I turned it into a modern, persistent, and genuinely helpful grade tracking platform that saves your work, syncs across devices, and gives a clear view of your semester at a glance.</p>
+            <p>GradePad started as a fix for a real pain: existing grade calculators didn’t save anything and made it hard to manage multiple courses. So I built one that remembers your work, syncs across devices, and shows your whole semester at a glance.</p>
 
 
             <div className="role-subsection">
@@ -283,7 +283,7 @@ const ProjectDetail = ({ project, onBack }) => {
                 <li>Semester dashboard with GPA and per-course summaries</li>
                 <li>AI-powered Syllabus Parser that converts pasted syllabi into graded evaluations</li>
                 <li>Firestore storage for logged-in users with cross-device sync</li>
-                <li>localStorage for guests accounts that persists across sessions and page reloads</li>
+                <li>localStorage for guest accounts that persists across sessions and page reloads</li>
                 <li>Theming and clean, responsive UI with installable PWA support</li>
               </ul>
             </div>
@@ -306,7 +306,7 @@ const ProjectDetail = ({ project, onBack }) => {
                     </svg>
                   </div>
                   <h5>Authentication & Sync</h5>
-                  <p>Firebase Auth + Firestore for seamless user authentication and data synchronization</p>
+                  <p>Firebase Auth + Firestore for sign-in and cross-device sync</p>
                 </div>
                 <div className="tile">
                   <div className="chip">
@@ -315,7 +315,7 @@ const ProjectDetail = ({ project, onBack }) => {
                     </svg>
                   </div>
                   <h5>Real-time Persistence</h5>
-                  <p>Immediate saving of user inputs and parsed data with no lost information on refresh</p>
+                  <p>Every input saves as you type, so nothing is lost on refresh</p>
                 </div>
                 <div className="tile">
                   <div className="chip">
@@ -371,9 +371,9 @@ const ProjectDetail = ({ project, onBack }) => {
             <div className="role-subsection">
               <h5>Technical Challenges</h5>
               <ul style={{ marginLeft: '1.5rem', marginTop: '0.5rem' }}>
-                <li>Normalizing arbitrary syllabus formats into structured data required careful parsing and guardrails around AI output with filtering, validation, and persistence logic so it survives reloads</li>
-                <li>Designing a resilient data layer that supports both authenticated sync with Firestore and guest fallback using local storage without code duplication</li>
-                <li>Ensuring grade calculations handle edge cases including missing inputs, zero weights, and partial data while keeping the UI responsive and accurate</li>
+                <li>Normalizing arbitrary syllabus formats meant strict guardrails around the AI output: filter, validate, and only then persist</li>
+                <li>One data layer serves both authenticated Firestore sync and guest localStorage fallback, without duplicating logic</li>
+                <li>Grade calculations had to survive edge cases like missing inputs, zero weights, and partial data without ever showing a wrong number</li>
               </ul>
             </div>
 
@@ -387,8 +387,8 @@ const ProjectDetail = ({ project, onBack }) => {
               <h5>What I Learned</h5>
               <ul style={{ marginLeft: '1.5rem', marginTop: '0.5rem' }}>
                 <li>The most impactful products solve specific, deeply felt problems. My narrow pain point of losing grade data across sessions led to a solution that students actually wanted to use</li>
-                <li>Iterative MVP development through multiple prototype stages validates assumptions and ensures the product evolves as expected before full implementation</li>
-                <li>Modern UI and UX are critical for user adoption where a polished interface builds trust and differentiates from dated competitors</li>
+                <li>Shipping rough prototypes early caught wrong assumptions while they were still cheap to fix</li>
+                <li>Polish matters: a clean interface is half the reason people trusted GradePad over the dated alternatives</li>
               </ul>
             </div>
           </div>
@@ -397,7 +397,7 @@ const ProjectDetail = ({ project, onBack }) => {
         {project.id === 3 && (
           <div className="about-this-role-section">
             <h4>About This Role</h4>
-            <p>Over the summer of 2025, I joined a small team at Encore Financial, working with <a href="https://www.linkedin.com/in/hasanjee/" target="_blank" rel="noopener noreferrer" className="team-member-link">Bilal Hasanjee</a> to build an <strong>AI-powered financial platform</strong>. We were building something pretty ambitious: a full suite for investment research, portfolio management, and wealth tracking. Working remotely with a small team, I took on both frontend and backend work.</p>
+            <p>Over the summer of 2025, I joined a small team at Encore Financial, working with <a href="https://www.linkedin.com/in/hasanjee/" target="_blank" rel="noopener noreferrer" className="team-member-link">Bilal Hasanjee</a> on an <strong>AI-powered financial platform</strong>: a full suite for investment research, portfolio management, and wealth tracking. Working remotely, I took on both frontend and backend work.</p>
 
             <div className="role-subsection">
               <h5>What I Built</h5>
@@ -418,7 +418,7 @@ const ProjectDetail = ({ project, onBack }) => {
                     </svg>
                   </div>
                   <h5>Back-End & API Integration</h5>
-                  <p>Server-side logic with market data API integration and secure user authentication and session management</p>
+                  <p>Server-side logic for market data APIs, authentication, and session management</p>
                 </div>
                 <div className="tile">
                   <div className="chip">
@@ -436,7 +436,7 @@ const ProjectDetail = ({ project, onBack }) => {
                     </svg>
                   </div>
                   <h5>Advanced AI Tools</h5>
-                  <p>PDF parsing capabilities and deep research models for comprehensive financial analysis</p>
+                  <p>PDF parsing and deep research models for in-depth financial analysis</p>
                 </div>
               </div>
             </div>
@@ -452,9 +452,9 @@ const ProjectDetail = ({ project, onBack }) => {
               <p>I built a carousel interface to help users navigate through different AI prompt options. This made it easy for users to explore various research queries and see what the AI could help them with, without having to type everything out manually. When a user clicks on any analysis module, it opens a chatbot page with a pre-filled prompt based on what was clicked, immediately starting a conversation with the AI.</p>
 
               <ul style={{ marginLeft: '1.5rem', marginTop: '0.5rem', marginBottom: '1rem' }}>
-                <li><strong>Coverflow Effect:</strong> This was one of the more complex features to implement. I built a custom React carousel from scratch using useState for state management and Tailwind CSS for styling. The coverflow effect required careful manipulation of CSS transform properties, z-index layering for proper depth perception, and optimized transition timing functions to ensure smooth animations.</li>
-                <li><strong>Card Positioning & Navigation:</strong> I implemented a card positioning algorithm that calculated dynamic offsets based on the current index, handling edge cases for the first and last cards. The navigation logic involved debouncing to prevent rapid state changes and ensuring proper boundary conditions.</li>
-                <li><strong>Performance Optimization:</strong> I spent considerable time optimizing the render performance, using React.memo where appropriate and minimizing unnecessary re-renders. I initially experimented with auto-rotation using useEffect and setInterval, but ultimately disabled it in favor of user-controlled navigation for better accessibility and intentional user interaction.</li>
+                <li><strong>Coverflow Effect:</strong> This was one of the more complex features to implement. I built a custom React carousel from scratch using useState for state management and Tailwind CSS for styling. The coverflow effect took careful work with CSS transforms, z-index layering for depth, and tuned transition timing so the animation stays smooth.</li>
+                <li><strong>Card Positioning & Navigation:</strong> I implemented a card positioning algorithm that calculated dynamic offsets based on the current index, handling edge cases for the first and last cards. Navigation needed debouncing so rapid clicks couldn't push the state out of bounds.</li>
+                <li><strong>Performance Optimization:</strong> I spent real time on render performance, using React.memo where it helped and cutting unnecessary re-renders. I tried auto-rotation with useEffect and setInterval, but disabled it in favor of user-controlled navigation, which is better for accessibility.</li>
               </ul>
 
               <p>Here's a demonstration of the MVP I created.</p>
@@ -489,8 +489,8 @@ const ProjectDetail = ({ project, onBack }) => {
 
             <div className="role-subsection">
               <h5>Deep Research Model</h5>
-              <p>I also worked on implementing the <strong>deep research</strong> feature, which allowed users to get comprehensive, in-depth analysis on specific topics. The model would pull from multiple sources and provide detailed insights that went beyond surface-level information.</p>
-              <p>Here's a demonstration of the MVP I created.</p>
+              <p>I also worked on the <strong>deep research</strong> feature, which lets users request in-depth analysis on a specific topic. The model pulls from multiple sources and returns a detailed write-up instead of a one-line answer.</p>
+              <p>A quick demo:</p>
               <div style={{ marginTop: '1.5rem', marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
                 <div style={{
                   width: '100%',
@@ -522,7 +522,7 @@ const ProjectDetail = ({ project, onBack }) => {
 
             <div className="role-subsection">
               <h5>AI Features</h5>
-              <p>We integrated AI to provide personalized investment insights and recommendations. This involved working with language models to analyze market trends and generate readable summaries for users. I helped design the prompts and structure the output so it felt natural and actually useful.</p>
+              <p>We used language models to turn market trends into readable summaries and personalized investment insights. I helped design the prompts and the output structure so responses felt natural and actually useful.</p>
             </div>
 
             <div className="role-subsection">
@@ -547,7 +547,7 @@ const ProjectDetail = ({ project, onBack }) => {
                     </svg>
                   </div>
                   <h5>Front-End Design & UX</h5>
-                  <p>Paywall UI design in Figma with subscription user flows that consistently received positive feedback and met project goals</p>
+                  <p>Paywall UI and subscription flows, designed in Figma and iterated with the team</p>
                 </div>
                 <div className="tile">
                   <div className="chip">
@@ -556,7 +556,7 @@ const ProjectDetail = ({ project, onBack }) => {
                     </svg>
                   </div>
                   <h5>Stripe & Firebase Integration</h5>
-                  <p>Integrated Stripe payment processing and Firebase authentication despite deployment challenges to deliver a working product</p>
+                  <p>Stripe payments wired to Firebase auth, taken all the way through deployment</p>
                 </div>
                 <div className="tile">
                   <div className="chip">
@@ -574,14 +574,14 @@ const ProjectDetail = ({ project, onBack }) => {
                     </svg>
                   </div>
                   <h5>Testing & Documentation</h5>
-                  <p>Scenario videos and comprehensive developer documentation for paywall setup and maintenance</p>
+                  <p>Scenario walkthrough videos and developer docs for paywall setup and maintenance</p>
                 </div>
               </div>
             </div>
 
             <div className="role-subsection">
               <h5>System Architecture</h5>
-              <p>We designed a comprehensive <strong>system architecture</strong> to handle user registration, subscription management, and content access control. The architecture integrated Firebase for authentication, Stripe for payment processing, and Firestore as the primary database.</p>
+              <p>We designed the <strong>system architecture</strong> around three services: Firebase for authentication, Stripe for payments, and Firestore as the primary database, covering everything from registration to subscription management to content access control.</p>
               <div style={{ marginTop: '1.5rem', marginBottom: '1.5rem' }}>
                 <img
                   src="./images/aeonArchitecture.webp"
@@ -596,15 +596,15 @@ const ProjectDetail = ({ project, onBack }) => {
                   }}
                 />
               </div>
-              <p>The system included several key modules: a User Authentication Module for registration and initial setup, a Subscription Module for managing premium subscriptions, a Tier-Level Access Module for controlling content based on user roles, and an Admin Control Module for administrative oversight. The architecture ensured that content access was dynamically controlled based on subscription status, with Stripe webhooks keeping the system synchronized with payment events.</p>
+              <p>Four modules sit on top: authentication and onboarding, subscription management, tier-based content access, and admin controls. Stripe webhooks keep everything in sync with payment events, so what a user can access always matches what they're actually paying for.</p>
             </div>
 
             <div className="role-subsection">
               <h5>Technical Challenges</h5>
               <ul style={{ marginLeft: '1.5rem', marginTop: '0.5rem' }}>
-                <li>Designing the paywall required over a week of research on working paywalls to ensure we met modern standards and followed industry best practices</li>
-                <li>Stripe integration and deployment required navigating complex payment system architectures with troubleshooting and testing different approaches to understand payment gateway integration and deployment workflows</li>
-                <li>Stripe price configuration and Firebase rules presented challenges that helped me understand the technical requirements behind payment gateways and the importance of thorough documentation</li>
+                <li>I spent over a week studying live paywalls before designing ours, so the flows would follow patterns users already know</li>
+                <li>Stripe integration and deployment took real troubleshooting, testing different approaches until the payment gateway and the deploy pipeline cooperated</li>
+                <li>Stripe price configuration and Firebase security rules were finicky enough to teach me why payment systems need thorough documentation</li>
               </ul>
             </div>
 
