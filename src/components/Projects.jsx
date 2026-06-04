@@ -16,7 +16,7 @@ export const projectsData = [
     year: "2026",
     timeline: "Sep. 2025 - Present",
     jobTitle: "Machine Learning Engineer",
-    description: "Co-authored research and built FORTif.ai, a multimodal AI platform for safer independent living.",
+    description: "Built FORTif.ai, a multimodal AI platform for safer independent living; research presented at CUCAI 2026.",
     image: "./images/WATaiBg (1).webp",
     tech: "Python, LLMs, RAG, Gemini, Weaviate, Computer Vision, YOLOv8, SAM3, FastAPI, Twilio"
   },

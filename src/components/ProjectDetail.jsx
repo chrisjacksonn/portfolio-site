@@ -81,7 +81,7 @@ const ProjectDetail = ({ project, onBack }) => {
             {project.id === 1 && (
               <div className="detail-meta-group">
                 <h4>Research</h4>
-                <p><a href="https://drive.google.com/file/d/1qWI_7aOvGYEjylcjC61IJ_aA5MMvIB11/view" target="_blank" rel="noopener noreferrer" className="team-member-link">Research paper ↗</a></p>
+                <p><a href="https://drive.google.com/file/d/1zBYuexehyjrdZFhFxgOlSuqkMTsDlqgR/view" target="_blank" rel="noopener noreferrer" className="team-member-link">Research paper ↗</a></p>
               </div>
             )}
           </div>
@@ -111,7 +111,7 @@ const ProjectDetail = ({ project, onBack }) => {
         {project.id === 1 && (
           <div className="about-this-role-section">
             <h4>About This Role</h4>
-            <p>I'm a <strong>Machine Learning Engineer</strong> on WAT.ai, one of Waterloo's student-run AI design teams, working on FORTif.ai. The work grew into a research paper, <a href="https://drive.google.com/file/d/1qWI_7aOvGYEjylcjC61IJ_aA5MMvIB11/view" target="_blank" rel="noopener noreferrer" className="team-member-link"><em>FORTif.ai: A Multimodal Platform for Safer Independent Living</em></a>, which I co-authored with a 13-person team spanning Waterloo, York, and Queen's, supported by WAT.ai and the UbiLab at the University of Waterloo.</p>
+            <p>I'm a <strong>Machine Learning Engineer</strong> on WAT.ai, one of Waterloo's student-run AI design teams, working on FORTif.ai. The work grew into a research paper, <a href="https://drive.google.com/file/d/1zBYuexehyjrdZFhFxgOlSuqkMTsDlqgR/view" target="_blank" rel="noopener noreferrer" className="team-member-link"><em>FORTif.ai: A Multimodal Platform for Safer Independent Living</em></a>, which I co-authored with a 13-person team spanning Waterloo, York, and Queen's, supported by WAT.ai and the UbiLab at the University of Waterloo. We presented the work at <strong>CUCAI 2026</strong>, Canada's largest undergraduate AI conference, and the paper is published in the <a href="https://cucai.ca/papers/19" target="_blank" rel="noopener noreferrer" className="team-member-link">conference proceedings</a>.</p>
 
             <div className="role-subsection">
               <h5>The Project</h5>
