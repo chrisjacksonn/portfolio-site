@@ -24,7 +24,7 @@ function App() {
       const waitForFirstRowImages = async () => {
         const imageUrls = [
           './images/ShopifyBg.webp',
-          './images/WATaiBg (1).webp'
+          './images/WataiHero.webp'
         ]
         const decodeOne = (src) => new Promise((resolve) => {
           const img = new Image()
