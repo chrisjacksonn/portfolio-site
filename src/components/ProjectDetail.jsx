@@ -34,6 +34,7 @@ const ProjectDetail = ({ project, onBack }) => {
 
   const getImageTransform = (projectId) => {
     if (projectId === 7) return 'none' // Shopify: preserve true shape without scaling
+    if (projectId === 2) return 'none' // QQuote: hero image is pre-cropped to 2:1
     if (projectId === 1) return 'none' // WAT.ai: preserve true shape without scaling
     if (projectId === 4) return 'none' // Aeon: preserve true shape without scaling
     if (projectId === 5) return 'scale(1.0)' // GradePad: zoom on project page (slightly smaller)
@@ -57,11 +58,11 @@ const ProjectDetail = ({ project, onBack }) => {
         <h1 className="project-detail-title">{project.title}</h1>
         <h2 className="project-detail-job-title">{project.jobTitle}</h2>
 
-        <div className={`project-detail-image-container project-glow-${project.id} ${project.id === 4 ? 'aeon-detail' : ''} ${project.id === 1 ? 'wat-detail' : ''} ${project.id === 5 ? 'gradepad-detail' : ''} ${project.id === 7 ? 'shopify-detail' : ''}`}>
+        <div className={`project-detail-image-container project-glow-${project.id} ${project.id === 4 ? 'aeon-detail' : ''} ${project.id === 1 ? 'wat-detail' : ''} ${project.id === 5 ? 'gradepad-detail' : ''} ${project.id === 7 ? 'shopify-detail' : ''} ${project.id === 2 ? 'qquote-detail' : ''}`}>
           <img
-            src={project.id === 7 ? './images/ShopifyLaptop.webp' : project.id === 4 ? './images/AeonBGprojectPage.webp' : project.id === 5 ? './images/GradePadbgPP (3).webp' : project.image}
+            src={project.id === 7 ? './images/ShopifyLaptop.webp' : project.id === 2 ? './images/QQuoteLaptop.webp' : project.id === 4 ? './images/AeonBGprojectPage.webp' : project.id === 5 ? './images/GradePadbgPP (3).webp' : project.image}
             alt={project.title}
-            className={`project-detail-image ${project.id === 4 ? 'aeon-image' : ''} ${project.id === 1 ? 'wat-image' : ''} ${project.id === 5 ? 'gradepad-image' : ''} ${project.id === 7 ? 'shopify-image' : ''}`}
+            className={`project-detail-image ${project.id === 4 ? 'aeon-image' : ''} ${project.id === 1 ? 'wat-image' : ''} ${project.id === 5 ? 'gradepad-image' : ''} ${project.id === 7 ? 'shopify-image' : ''} ${project.id === 2 ? 'qquote-image' : ''}`}
             style={{
               transform: getImageTransform(project.id)
             }}

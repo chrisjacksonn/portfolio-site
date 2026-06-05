@@ -322,7 +322,8 @@ body {
   ); /* compensate for transparent edges in source images */
 }
 
-/* Shopify (id 7) card image is pre-cropped to exactly 2:1, show it without zoom */
+/* Pre-cropped 2:1 card images (Shopify, QQuote), show without zoom */
+.project-2 .project-image img,
 .project-7 .project-image img {
   transform: none;
   transition: none;
@@ -1356,12 +1357,22 @@ body {
   box-shadow: 0 0 40px 8px rgba(255, 206, 26, 0.65); /* FFCE1A for WAT.ai */
 }
 
-/* Shopify (id 7) detail: transparent laptop floats on the page */
-.project-detail-image-container.shopify-detail {
+/* Shopify (id 7) and QQuote (id 2) detail: transparent laptop floats on the page */
+.project-detail-image-container.shopify-detail,
+.project-detail-image-container.qquote-detail {
   background: transparent !important;
   aspect-ratio: auto;
   overflow: visible;
   box-shadow: none !important;
+}
+
+.qquote-image {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 18px rgba(218, 108, 53, 0.85))
+    drop-shadow(0 0 36px rgba(218, 108, 53, 0.6))
+    drop-shadow(0 0 70px rgba(218, 108, 53, 0.4)); /* DA6C35 for QQuote */
 }
 
 .shopify-image {
