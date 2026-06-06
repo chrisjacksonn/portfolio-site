@@ -946,13 +946,25 @@ body {
 }
 
 /* WAT.ai (id 1) detail: preserve true image shape and transparency */
+/* WAT.ai monitor renders larger than the standard frame */
+.project-detail-image-container.wat-detail {
+  max-width: 1000px;
+  width: min(75vw, 1000px);
+}
+
+@media (max-width: 768px) {
+  .project-detail-image-container.wat-detail {
+    width: 100%;
+  }
+}
+
 .wat-image {
   object-fit: contain;
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 18px rgba(255, 206, 26, 0.85))
-    drop-shadow(0 0 36px rgba(255, 206, 26, 0.6))
-    drop-shadow(0 0 70px rgba(255, 206, 26, 0.4)); /* FFCE1A for WAT.ai */
+  filter: drop-shadow(0 0 18px rgba(255, 206, 26, 0.5))
+    drop-shadow(0 0 36px rgba(255, 206, 26, 0.32))
+    drop-shadow(0 0 70px rgba(255, 206, 26, 0.2)); /* FFCE1A for WAT.ai */
 }
 
 /* Add more space below WAT.ai image on mobile */
