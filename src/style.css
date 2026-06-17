@@ -903,6 +903,11 @@ body {
   margin-top: 4.5rem;
 }
 
+/* WAT.ai project (id 1): lower the meta section */
+.project-detail-content:has(.project-glow-1) .detail-meta {
+  margin-top: 4.5rem;
+}
+
 /* Aeon (id 4) detail: preserve true image shape and transparency */
 .aeon-detail {
   background: transparent;
