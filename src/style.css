@@ -322,9 +322,10 @@ body {
   ); /* compensate for transparent edges in source images */
 }
 
-/* Pre-cropped 2:1 card images (Shopify, QQuote, WAT.ai), show without zoom */
+/* Pre-cropped 2:1 card images (Shopify, QQuote, WAT.ai, Encore), show without zoom */
 .project-1 .project-image img,
 .project-2 .project-image img,
+.project-3 .project-image img,
 .project-7 .project-image img {
   transform: none;
   transition: none;

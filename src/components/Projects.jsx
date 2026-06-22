@@ -47,7 +47,7 @@ export const projectsData = [
     timeline: "Jun. 2025 - Present",
     jobTitle: "AI Software Engineer",
     description: "Building an AI-powered financial platform for investment research and portfolio management.",
-    image: "./images/EncoreBg (7).webp",
+    image: "./images/EncoreHero.webp",
     tech: "TypeScript, React, Node.js, AI Integration, PDF Processing, Tailwind CSS"
   },
   {
