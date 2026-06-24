@@ -1326,14 +1326,22 @@ body {
   box-shadow: 0 0 40px 8px rgba(255, 206, 26, 0.65); /* FFCE1A for WAT.ai */
 }
 
-/* Shopify (id 7), QQuote (id 2), WAT.ai (id 1) detail: transparent image floats on the page */
+/* Shopify (id 7), QQuote (id 2), WAT.ai (id 1), Encore (id 3) detail: transparent image floats on the page */
 .project-detail-image-container.shopify-detail,
 .project-detail-image-container.qquote-detail,
-.project-detail-image-container.wat-detail {
+.project-detail-image-container.wat-detail,
+.project-detail-image-container.encore-detail {
   background: transparent !important;
   aspect-ratio: auto;
   overflow: visible;
   box-shadow: none !important;
+}
+
+/* Encore desk setup floats with no glow */
+.encore-image {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
 }
 
 .qquote-image {

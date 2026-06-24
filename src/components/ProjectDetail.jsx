@@ -59,11 +59,11 @@ const ProjectDetail = ({ project, onBack }) => {
         <h1 className="project-detail-title">{project.title}</h1>
         <h2 className="project-detail-job-title">{project.jobTitle}</h2>
 
-        <div className={`project-detail-image-container project-glow-${project.id} ${project.id === 4 ? 'aeon-detail' : ''} ${project.id === 1 ? 'wat-detail' : ''} ${project.id === 5 ? 'gradepad-detail' : ''} ${project.id === 7 ? 'shopify-detail' : ''} ${project.id === 2 ? 'qquote-detail' : ''}`}>
+        <div className={`project-detail-image-container project-glow-${project.id} ${project.id === 4 ? 'aeon-detail' : ''} ${project.id === 1 ? 'wat-detail' : ''} ${project.id === 5 ? 'gradepad-detail' : ''} ${project.id === 7 ? 'shopify-detail' : ''} ${project.id === 2 ? 'qquote-detail' : ''} ${project.id === 3 ? 'encore-detail' : ''}`}>
           <img
-            src={project.id === 7 ? './images/ShopifyLaptop.webp' : project.id === 2 ? './images/QQuoteLaptop.webp' : project.id === 1 ? './images/WataiMonitor.webp' :project.id === 4 ? './images/AeonBGprojectPage.webp' : project.id === 5 ? './images/GradePadbgPP (3).webp' : project.image}
+            src={project.id === 7 ? './images/ShopifyLaptop.webp' : project.id === 2 ? './images/QQuoteLaptop.webp' : project.id === 1 ? './images/WataiMonitor.webp' : project.id === 3 ? './images/EncoreDesk.webp' :project.id === 4 ? './images/AeonBGprojectPage.webp' : project.id === 5 ? './images/GradePadbgPP (3).webp' : project.image}
             alt={project.title}
-            className={`project-detail-image ${project.id === 4 ? 'aeon-image' : ''} ${project.id === 1 ? 'wat-image' : ''} ${project.id === 5 ? 'gradepad-image' : ''} ${project.id === 7 ? 'shopify-image' : ''} ${project.id === 2 ? 'qquote-image' : ''}`}
+            className={`project-detail-image ${project.id === 4 ? 'aeon-image' : ''} ${project.id === 1 ? 'wat-image' : ''} ${project.id === 5 ? 'gradepad-image' : ''} ${project.id === 7 ? 'shopify-image' : ''} ${project.id === 2 ? 'qquote-image' : ''} ${project.id === 3 ? 'encore-image' : ''}`}
             style={{
               transform: getImageTransform(project.id)
             }}
