@@ -399,7 +399,7 @@ const ProjectDetail = ({ project, onBack }) => {
         {project.id === 3 && (
           <div className="about-this-role-section">
             <h4>About This Role</h4>
-            <p>Over the summer of 2025, I joined a small team at Encore Financial, working with <a href="https://www.linkedin.com/in/hasanjee/" target="_blank" rel="noopener noreferrer" className="team-member-link">Bilal Hasanjee</a> on an <strong>AI-powered financial platform</strong>: a full suite for investment research, portfolio management, and wealth tracking. Working remotely, I took on both frontend and backend work.</p>
+            <p>Over the course of 2025, I joined <a href="https://www.linkedin.com/in/hasanjee/" target="_blank" rel="noopener noreferrer" className="team-member-link">Bilal Hasanjee</a> and others to work on an <strong>AI-powered financial platform</strong>: a full suite for investment research, portfolio management, and wealth tracking. Working remotely, I took on both frontend and backend work.</p>
 
             <div className="role-subsection">
               <h5>What I Built</h5>

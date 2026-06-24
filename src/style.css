@@ -1337,11 +1337,25 @@ body {
   box-shadow: none !important;
 }
 
-/* Encore desk setup floats with no glow */
+/* Encore desk renders slightly larger than the standard frame */
+.project-detail-image-container.encore-detail {
+  max-width: 840px;
+  width: min(65vw, 840px);
+}
+
+@media (max-width: 768px) {
+  .project-detail-image-container.encore-detail {
+    width: 100%;
+  }
+}
+
+/* Encore desk setup floats with a slight glow */
 .encore-image {
   object-fit: contain;
   width: 100%;
   height: auto;
+  filter: drop-shadow(0 0 20px rgba(249, 98, 16, 0.25))
+    drop-shadow(0 0 45px rgba(249, 98, 16, 0.15)); /* F96210 for Encore */
 }
 
 .qquote-image {
