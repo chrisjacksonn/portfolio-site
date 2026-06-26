@@ -411,7 +411,7 @@ const ProjectDetail = ({ project, onBack }) => {
                     </svg>
                   </div>
                   <h5>Front-End Development</h5>
-                  <p>Built React components for financial dashboards and portfolio tracking with real-time data visualization and responsive performance</p>
+                  <p>React dashboards for portfolio tracking and live market data, tuned for fast renders and responsive charts</p>
                 </div>
                 <div className="tile">
                   <div className="chip">
@@ -429,7 +429,7 @@ const ProjectDetail = ({ project, onBack }) => {
                     </svg>
                   </div>
                   <h5>Data Visualization & Analytics</h5>
-                  <p>Performance dashboards showing investment KPIs, historical trends, and AI-generated insights</p>
+                  <p>Chart.js visualizations of investment KPIs and historical performance, with drill-down by time period and asset class</p>
                 </div>
                 <div className="tile">
                   <div className="chip">
@@ -438,28 +438,22 @@ const ProjectDetail = ({ project, onBack }) => {
                     </svg>
                   </div>
                   <h5>Advanced AI Tools</h5>
-                  <p>PDF parsing and deep research models for in-depth financial analysis</p>
+                  <p>LLM-powered deep research and PDF parsing for in-depth financial analysis</p>
                 </div>
               </div>
             </div>
 
             <div className="role-subsection">
-              <h5>Building the Dashboard</h5>
-              <p>One of the bigger challenges was building a dashboard that could handle real-time financial data without feeling laggy. I spent a lot of time optimizing how we fetched and displayed market data, using React hooks to manage state efficiently and implementing proper loading states.</p>
-              <p>The portfolio tracking feature needed to show complex investment data in a way that made sense at a glance. I used <strong>Chart.js</strong> to create interactive visualizations that could drill down into specific time periods or asset classes. The tricky part was balancing detail with simplicity.</p>
+              <h5>Real-Time Market Data</h5>
+              <p>The hardest engineering problem was making <strong>live market data</strong> feel instant. Quotes and portfolio values change constantly, so I spent my time on the plumbing: how we fetched from market data APIs, stayed inside providers' <strong>rate limits</strong>, dealt with latency, and kept renders efficient with React hooks and proper loading states so the dashboard never felt laggy.</p>
+              <p>Presentation mattered as much as speed. Investment data has to make sense at a glance, so I used <strong>Chart.js</strong> to build interactive visualizations of portfolio performance that drill down into specific time periods or <strong>asset classes</strong>. The tricky part was balancing detail with simplicity.</p>
             </div>
 
             <div className="role-subsection">
-              <h5>AI Carousel Interface</h5>
-              <p>I built a carousel interface to help users navigate through different AI prompt options. This made it easy for users to explore various research queries and see what the AI could help them with, without having to type everything out manually. When a user clicks on any analysis module, it opens a chatbot page with a pre-filled prompt based on what was clicked, immediately starting a conversation with the AI.</p>
+              <h5>AI Research Interface</h5>
+              <p>I built the entry point for the platform's AI research tools: a custom React carousel of <strong>analysis modules</strong> covering different research angles, where clicking any module opens the chatbot with a pre-filled prompt and starts the analysis immediately. The goal was to take a user from a question about their portfolio to a running AI conversation in one click, without typing a prompt from scratch. Building it from scratch meant careful work with CSS transforms, debounced navigation, and render optimization.</p>
 
-              <ul style={{ marginLeft: '1.5rem', marginTop: '0.5rem', marginBottom: '1rem' }}>
-                <li><strong>Coverflow Effect:</strong> This was one of the more complex features to implement. I built a custom React carousel from scratch using useState for state management and Tailwind CSS for styling. The coverflow effect took careful work with CSS transforms, z-index layering for depth, and tuned transition timing so the animation stays smooth.</li>
-                <li><strong>Card Positioning & Navigation:</strong> I implemented a card positioning algorithm that calculated dynamic offsets based on the current index, handling edge cases for the first and last cards. Navigation needed debouncing so rapid clicks couldn't push the state out of bounds.</li>
-                <li><strong>Performance Optimization:</strong> I spent real time on render performance, using React.memo where it helped and cutting unnecessary re-renders. I tried auto-rotation with useEffect and setInterval, but disabled it in favor of user-controlled navigation, which is better for accessibility.</li>
-              </ul>
-
-              <p>Here's a demonstration of the MVP I created.</p>
+              <p>Here's the MVP in action.</p>
               <div style={{ marginTop: '1.5rem', marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
                 <div style={{
                   width: '100%',
@@ -491,7 +485,7 @@ const ProjectDetail = ({ project, onBack }) => {
 
             <div className="role-subsection">
               <h5>Deep Research Model</h5>
-              <p>I also worked on the <strong>deep research</strong> feature, which lets users request in-depth analysis on a specific topic. The model pulls from multiple sources and returns a detailed write-up instead of a one-line answer.</p>
+              <p>I also worked on the <strong>deep research</strong> feature, which lets users request institutional-style analysis on a specific topic. The model pulls from multiple sources and synthesizes a detailed write-up. It's the difference between asking for a stock quote and asking for a thesis.</p>
               <p>A quick demo:</p>
               <div style={{ marginTop: '1.5rem', marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
                 <div style={{
@@ -523,8 +517,8 @@ const ProjectDetail = ({ project, onBack }) => {
             </div>
 
             <div className="role-subsection">
-              <h5>AI Features</h5>
-              <p>We used language models to turn market trends into readable summaries and personalized investment insights. I helped design the prompts and the output structure so responses felt natural and actually useful.</p>
+              <h5>AI Market Insights</h5>
+              <p>We used language models to turn <strong>market trends</strong> into readable summaries and personalized investment insights. I helped design the prompts and the output structure, so a portfolio's story reads clearly instead of like raw numbers.</p>
             </div>
 
             <div className="role-subsection">
