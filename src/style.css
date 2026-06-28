@@ -954,8 +954,8 @@ body {
 /* WAT.ai (id 1) detail: preserve true image shape and transparency */
 /* WAT.ai monitor renders larger than the standard frame */
 .project-detail-image-container.wat-detail {
-  max-width: 1000px;
-  width: min(75vw, 1000px);
+  max-width: 900px;
+  width: min(68vw, 900px);
 }
 
 @media (max-width: 768px) {
