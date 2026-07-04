@@ -57,7 +57,7 @@ export const projectsData = [
     timeline: "Jun. 2025 - Aug. 2025",
     jobTitle: "Full Stack Developer",
     description: "Developed subscription paywall system for Canada's first AI-powered dietary marketplace.",
-    image: "./images/AeonBGprojectPage.webp",
+    image: "./images/AeonHero.webp",
     tech: "React.js, Stripe, Firebase, Figma, API Integration, Payment Systems, Subscription Management, UX Design"
   }
 ]
