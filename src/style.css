@@ -913,7 +913,7 @@ body {
   max-width: 1200px; /* enlarge Aeon detail presentation */
   width: min(60vw, 1200px);
   transform: translateY(
-    -60px
+    -30px
   ); /* move image up without affecting layout above */
 }
 
@@ -937,7 +937,7 @@ body {
   .project-detail-image-container.aeon-detail {
     max-width: 80vw !important;
     width: 80vw !important;
-    transform: translateY(-30px) !important;
+    transform: translateY(-15px) !important;
   }
 
   .aeon-image {
