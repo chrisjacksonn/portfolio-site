@@ -102,6 +102,33 @@ function App() {
     }
   }, [])
 
+  // Once the page has settled, quietly warm the cache with the
+  // project detail images so opening any project feels instant
+  useEffect(() => {
+    if (isLoading) return
+    if (navigator.connection && navigator.connection.saveData) return
+    const detailImages = [
+      './images/ShopifyLaptop.webp',
+      './images/WataiMonitor.webp',
+      './images/QQuoteLaptop.webp',
+      './images/EncoreDesk.webp',
+      './images/AeonPhones.webp',
+      './images/GradePadbgPP (3).webp'
+    ]
+    const warm = () => {
+      detailImages.forEach((src) => {
+        const img = new Image()
+        img.src = src
+      })
+    }
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(warm, { timeout: 4000 })
+      return () => window.cancelIdleCallback(id)
+    }
+    const timer = setTimeout(warm, 2500)
+    return () => clearTimeout(timer)
+  }, [isLoading])
+
   // Restore home scroll position after returning from a project detail
   useLayoutEffect(() => {
     if (selectedProject === null && pendingHomeScroll.current !== null) {
