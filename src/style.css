@@ -910,8 +910,8 @@ body {
   aspect-ratio: auto;
   overflow: visible;
   box-shadow: none;
-  max-width: 1200px; /* enlarge Aeon detail presentation */
-  width: min(60vw, 1200px);
+  max-width: 1310px; /* enlarge Aeon detail presentation */
+  width: min(66vw, 1310px);
   transform: translateY(
     -30px
   ); /* move image up without affecting layout above */
@@ -922,9 +922,6 @@ body {
   width: 100%;
   height: auto;
   margin: 0 auto;
-  /* Shape-following glow using the image alpha */
-  filter: drop-shadow(0 0 22px rgba(134, 100, 225, 0.45))
-    drop-shadow(0 0 50px rgba(134, 100, 225, 0.26));
 }
 
 /* Disable default Aeon container glow when using shape-following image glow */
@@ -935,8 +932,8 @@ body {
 /* Make Aeon image larger on mobile */
 @media (max-width: 768px) {
   .project-detail-image-container.aeon-detail {
-    max-width: 80vw !important;
-    width: 80vw !important;
+    max-width: 87vw !important;
+    width: 87vw !important;
     transform: translateY(-15px) !important;
   }
 
@@ -948,8 +945,8 @@ body {
 /* WAT.ai (id 1) detail: preserve true image shape and transparency */
 /* WAT.ai monitor renders larger than the standard frame */
 .project-detail-image-container.wat-detail {
-  max-width: 900px;
-  width: min(68vw, 900px);
+  max-width: 1055px;
+  width: min(80vw, 1055px);
 }
 
 @media (max-width: 768px) {
@@ -962,9 +959,6 @@ body {
   object-fit: contain;
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 18px rgba(255, 206, 26, 0.5))
-    drop-shadow(0 0 36px rgba(255, 206, 26, 0.32))
-    drop-shadow(0 0 70px rgba(255, 206, 26, 0.2)); /* FFCE1A for WAT.ai */
 }
 
 /* Add more space below WAT.ai image on mobile */
@@ -1333,8 +1327,8 @@ body {
 
 /* QQuote laptop renders slightly larger than the standard frame */
 .project-detail-image-container.qquote-detail {
-  max-width: 740px;
-  width: min(55vw, 740px);
+  max-width: 895px;
+  width: min(66vw, 895px);
 }
 
 @media (max-width: 768px) {
@@ -1345,8 +1339,8 @@ body {
 
 /* Encore desk renders slightly larger than the standard frame */
 .project-detail-image-container.encore-detail {
-  max-width: 840px;
-  width: min(65vw, 840px);
+  max-width: 940px;
+  width: min(73vw, 940px);
 }
 
 @media (max-width: 768px) {
@@ -1355,55 +1349,30 @@ body {
   }
 }
 
-/* Encore desk setup floats with a slight glow */
+/* Encore desk setup floats with a slight baked-in glow */
 .encore-image {
   object-fit: contain;
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 20px rgba(249, 98, 16, 0.25))
-    drop-shadow(0 0 45px rgba(249, 98, 16, 0.15)); /* F96210 for Encore */
 }
 
 .qquote-image {
   object-fit: contain;
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 18px rgba(218, 108, 53, 0.6))
-    drop-shadow(0 0 36px rgba(218, 108, 53, 0.42))
-    drop-shadow(0 0 70px rgba(218, 108, 53, 0.28)); /* DA6C35 for QQuote */
+}
+
+/* The glows are baked into the image files themselves (iOS Safari renders
+   CSS drop-shadow on these as a rectangle), so no filters here. Container
+   widths include the transparent glow margin around each object. */
+.project-detail-image-container.shopify-detail {
+  max-width: 854px;
 }
 
 .shopify-image {
   object-fit: contain;
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 18px rgba(47, 107, 74, 0.85))
-    drop-shadow(0 0 36px rgba(47, 107, 74, 0.6))
-    drop-shadow(0 0 70px rgba(47, 107, 74, 0.4)); /* forest green from the hero image */
-}
-
-/* Phones: a single drop-shadow per image; stacked filters can make
-   iOS Safari fall back to a rectangular shadow under memory pressure */
-@media (max-width: 768px) {
-  .shopify-image {
-    filter: drop-shadow(0 0 28px rgba(72, 150, 105, 0.85));
-  }
-
-  .qquote-image {
-    filter: drop-shadow(0 0 28px rgba(218, 108, 53, 0.8));
-  }
-
-  .wat-image {
-    filter: drop-shadow(0 0 26px rgba(255, 206, 26, 0.45));
-  }
-
-  .encore-image {
-    filter: drop-shadow(0 0 26px rgba(249, 98, 16, 0.45));
-  }
-
-  .aeon-image {
-    filter: drop-shadow(0 0 28px rgba(134, 100, 225, 0.7));
-  }
 }
 
 .project-detail-image-container.project-glow-2 {
