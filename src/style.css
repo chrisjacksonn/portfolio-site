@@ -1386,11 +1386,11 @@ body {
    iOS Safari fall back to a rectangular shadow under memory pressure */
 @media (max-width: 768px) {
   .shopify-image {
-    filter: drop-shadow(0 0 26px rgba(47, 107, 74, 0.7));
+    filter: drop-shadow(0 0 28px rgba(72, 150, 105, 0.85));
   }
 
   .qquote-image {
-    filter: drop-shadow(0 0 26px rgba(218, 108, 53, 0.5));
+    filter: drop-shadow(0 0 28px rgba(218, 108, 53, 0.8));
   }
 
   .wat-image {
@@ -1398,11 +1398,11 @@ body {
   }
 
   .encore-image {
-    filter: drop-shadow(0 0 24px rgba(249, 98, 16, 0.22));
+    filter: drop-shadow(0 0 26px rgba(249, 98, 16, 0.45));
   }
 
   .aeon-image {
-    filter: drop-shadow(0 0 26px rgba(134, 100, 225, 0.4));
+    filter: drop-shadow(0 0 28px rgba(134, 100, 225, 0.7));
   }
 }
 
