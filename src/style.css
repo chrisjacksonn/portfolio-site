@@ -1382,6 +1382,30 @@ body {
     drop-shadow(0 0 70px rgba(47, 107, 74, 0.4)); /* forest green from the hero image */
 }
 
+/* Phones: a single drop-shadow per image; stacked filters can make
+   iOS Safari fall back to a rectangular shadow under memory pressure */
+@media (max-width: 768px) {
+  .shopify-image {
+    filter: drop-shadow(0 0 26px rgba(47, 107, 74, 0.7));
+  }
+
+  .qquote-image {
+    filter: drop-shadow(0 0 26px rgba(218, 108, 53, 0.5));
+  }
+
+  .wat-image {
+    filter: drop-shadow(0 0 26px rgba(255, 206, 26, 0.45));
+  }
+
+  .encore-image {
+    filter: drop-shadow(0 0 24px rgba(249, 98, 16, 0.22));
+  }
+
+  .aeon-image {
+    filter: drop-shadow(0 0 26px rgba(134, 100, 225, 0.4));
+  }
+}
+
 .project-detail-image-container.project-glow-2 {
   box-shadow: 0 0 40px 8px rgba(218, 108, 53, 0.65),
     0 0 20px 4px rgba(218, 108, 53, 0.5), 0 0 12px 2px rgba(218, 108, 53, 0.35); /* DA6C35 for QQuote */
