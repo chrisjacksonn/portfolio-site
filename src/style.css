@@ -879,14 +879,14 @@ body {
   }
 }
 
-/* QQuote (id 2): lower the meta section */
+/* QQuote (id 2): meta sits 68px under visible image bottom */
 .project-detail-content:has(.project-glow-2) .detail-meta {
-  margin-top: 3.5rem;
+  margin-top: -8.58rem;
 }
 
-/* Encore project (id 3): lower the meta section */
+/* Encore project (id 3): meta sits 68px under visible image bottom */
 .project-detail-content:has(.project-glow-3) .detail-meta {
-  margin-top: 5rem;
+  margin-top: -3.83rem;
 }
 
 /* Gradepad project (id 5): lower the meta section */
@@ -894,14 +894,14 @@ body {
   margin-top: 3rem;
 }
 
-/* Shopify project (id 7): lower the meta section */
+/* Shopify project (id 7): meta sits 68px under visible image bottom */
 .project-detail-content:has(.project-glow-7) .detail-meta {
-  margin-top: 4.5rem;
+  margin-top: -8.88rem;
 }
 
-/* WAT.ai project (id 1): lower the meta section */
+/* WAT.ai project (id 1): meta sits 68px under visible image bottom */
 .project-detail-content:has(.project-glow-1) .detail-meta {
-  margin-top: 4.5rem;
+  margin-top: -7.08rem;
 }
 
 /* Aeon (id 4) detail: preserve true image shape and transparency */
@@ -913,7 +913,7 @@ body {
   max-width: 1310px; /* enlarge Aeon detail presentation */
   width: min(66vw, 1310px);
   transform: translateY(
-    -30px
+    -69px
   ); /* move image up without affecting layout above */
 }
 
@@ -934,7 +934,7 @@ body {
   .project-detail-image-container.aeon-detail {
     max-width: 87vw !important;
     width: 87vw !important;
-    transform: translateY(-15px) !important;
+    transform: translateY(-47px) !important;
   }
 
   .aeon-image {
@@ -947,11 +947,13 @@ body {
 .project-detail-image-container.wat-detail {
   max-width: 1055px;
   width: min(80vw, 1055px);
+  transform: translateY(-92px);
 }
 
 @media (max-width: 768px) {
   .project-detail-image-container.wat-detail {
     width: 100%;
+    transform: translateY(-50px);
   }
 }
 
@@ -964,7 +966,7 @@ body {
 /* Add more space below WAT.ai image on mobile */
 @media (max-width: 768px) {
   .project-detail-content:has(.wat-detail) .detail-meta {
-    margin-top: 5rem;
+    margin-top: 0.3rem;
   }
 }
 
@@ -1329,11 +1331,13 @@ body {
 .project-detail-image-container.qquote-detail {
   max-width: 895px;
   width: min(66vw, 895px);
+  transform: translateY(-91px);
 }
 
 @media (max-width: 768px) {
   .project-detail-image-container.qquote-detail {
     width: 100%;
+    transform: translateY(-55px);
   }
 }
 
@@ -1341,11 +1345,13 @@ body {
 .project-detail-image-container.encore-detail {
   max-width: 940px;
   width: min(73vw, 940px);
+  transform: translateY(-70px);
 }
 
 @media (max-width: 768px) {
   .project-detail-image-container.encore-detail {
     width: 100%;
+    transform: translateY(-46px);
   }
 }
 
@@ -1366,7 +1372,16 @@ body {
    CSS drop-shadow on these as a rectangle), so no filters here. Container
    widths include the transparent glow margin around each object. */
 .project-detail-image-container.shopify-detail {
-  max-width: 854px;
+  max-width: 900px;
+  width: min(70vw, 900px);
+  transform: translateY(-93px);
+}
+
+@media (max-width: 768px) {
+  .project-detail-image-container.shopify-detail {
+    width: 100%;
+    transform: translateY(-56px);
+  }
 }
 
 .shopify-image {
@@ -1407,17 +1422,17 @@ body {
   aspect-ratio: auto;
   overflow: visible;
   box-shadow: none;
-  transform: translateY(-70px);
+  transform: translateY(-45px);
 }
 
 /* Pull GradePad detail meta (timeline, role, etc.) closer under image */
 .project-detail-content:has(.gradepad-detail) .detail-meta {
-  margin-top: -3.95rem;
+  margin-top: -0.83rem;
 }
 
 /* Pull Aeon detail meta (timeline, role, etc.) closer under image */
 .project-detail-content:has(.aeon-detail) .detail-meta {
-  margin-top: 1.5rem;
+  margin-top: -1.78rem;
 }
 
 .gradepad-image {
