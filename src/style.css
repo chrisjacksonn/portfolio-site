@@ -1422,12 +1422,13 @@ body {
   aspect-ratio: auto;
   overflow: visible;
   box-shadow: none;
-  transform: translateY(-45px);
+  max-width: 650px;
+  transform: translateY(-40px);
 }
 
 /* Pull GradePad detail meta (timeline, role, etc.) closer under image */
 .project-detail-content:has(.gradepad-detail) .detail-meta {
-  margin-top: -0.83rem;
+  margin-top: -0.26rem;
 }
 
 /* Pull Aeon detail meta (timeline, role, etc.) closer under image */
