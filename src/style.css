@@ -901,7 +901,7 @@ body {
 
 /* WAT.ai project (id 1): meta sits 68px under visible image bottom */
 .project-detail-content:has(.project-glow-1) .detail-meta {
-  margin-top: -7.08rem;
+  margin-top: -5.66rem;
 }
 
 /* Aeon (id 4) detail: preserve true image shape and transparency */
@@ -945,9 +945,9 @@ body {
 /* WAT.ai (id 1) detail: preserve true image shape and transparency */
 /* WAT.ai monitor renders larger than the standard frame */
 .project-detail-image-container.wat-detail {
-  max-width: 1055px;
-  width: min(80vw, 1055px);
-  transform: translateY(-92px);
+  max-width: 950px;
+  width: min(72vw, 950px);
+  transform: translateY(-81px);
 }
 
 @media (max-width: 768px) {
