@@ -910,8 +910,8 @@ body {
   aspect-ratio: auto;
   overflow: visible;
   box-shadow: none;
-  max-width: 1310px; /* enlarge Aeon detail presentation */
-  width: min(66vw, 1310px);
+  max-width: 1200px; /* enlarge Aeon detail presentation */
+  width: min(60vw, 1200px);
   transform: translateY(
     -69px
   ); /* move image up without affecting layout above */
@@ -1422,13 +1422,13 @@ body {
   aspect-ratio: auto;
   overflow: visible;
   box-shadow: none;
-  max-width: 650px;
-  transform: translateY(-40px);
+  max-width: 550px;
+  transform: translateY(-85px);
 }
 
 /* Pull GradePad detail meta (timeline, role, etc.) closer under image */
 .project-detail-content:has(.gradepad-detail) .detail-meta {
-  margin-top: -0.26rem;
+  margin-top: -3.07rem;
 }
 
 /* Pull Aeon detail meta (timeline, role, etc.) closer under image */
