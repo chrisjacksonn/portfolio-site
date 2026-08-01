@@ -244,8 +244,8 @@ body {
 
 .project-3 .project-image:hover {
   /* Encore */
-  box-shadow: 0 0 40px 8px rgba(249, 98, 16, 0.65),
-    0 0 20px 4px rgba(249, 98, 16, 0.5), 0 0 12px 2px rgba(249, 98, 16, 0.35);
+  box-shadow: 0 0 40px 8px rgba(218, 108, 53, 0.65),
+    0 0 20px 4px rgba(218, 108, 53, 0.5), 0 0 12px 2px rgba(218, 108, 53, 0.35);
 }
 
 .project-4 .project-image:hover {
@@ -283,8 +283,8 @@ body {
 
 .project-3:has(.project-title:hover) .project-image {
   /* Encore */
-  box-shadow: 0 0 40px 8px rgba(249, 98, 16, 0.65),
-    0 0 20px 4px rgba(249, 98, 16, 0.5), 0 0 12px 2px rgba(249, 98, 16, 0.35);
+  box-shadow: 0 0 40px 8px rgba(218, 108, 53, 0.65),
+    0 0 20px 4px rgba(218, 108, 53, 0.5), 0 0 12px 2px rgba(218, 108, 53, 0.35);
 }
 
 .project-4:has(.project-title:hover) .project-image {
@@ -576,7 +576,7 @@ body {
   }
 
   .project-3 .project-image:hover {
-    box-shadow: 0 0 32px 6px rgba(249, 98, 16, 0.65),
+    box-shadow: 0 0 32px 6px rgba(218, 108, 53, 0.65),
       0 0 16px 3px rgba(249, 98, 16, 0.5),
       0 0 10px 1.5px rgba(249, 98, 16, 0.35);
   }
@@ -604,7 +604,7 @@ body {
   }
 
   .project-3:has(.project-title:hover) .project-image {
-    box-shadow: 0 0 32px 6px rgba(249, 98, 16, 0.65),
+    box-shadow: 0 0 32px 6px rgba(218, 108, 53, 0.65),
       0 0 16px 3px rgba(249, 98, 16, 0.5),
       0 0 10px 1.5px rgba(249, 98, 16, 0.35);
   }
@@ -632,7 +632,7 @@ body {
   }
 
   .project-detail-image-container.project-glow-3 {
-    box-shadow: 0 0 32px 6px rgba(249, 98, 16, 0.65),
+    box-shadow: 0 0 32px 6px rgba(218, 108, 53, 0.65),
       0 0 16px 3px rgba(249, 98, 16, 0.5),
       0 0 10px 1.5px rgba(249, 98, 16, 0.35);
   }
@@ -1396,8 +1396,8 @@ body {
 }
 
 .project-detail-image-container.project-glow-3 {
-  box-shadow: 0 0 40px 8px rgba(249, 98, 16, 0.65),
-    0 0 20px 4px rgba(249, 98, 16, 0.5), 0 0 12px 2px rgba(249, 98, 16, 0.35); /* F96210 for Encore */
+  box-shadow: 0 0 40px 8px rgba(218, 108, 53, 0.65),
+    0 0 20px 4px rgba(218, 108, 53, 0.5), 0 0 12px 2px rgba(218, 108, 53, 0.35); /* F96210 for Encore */
 }
 
 .project-detail-image-container.project-glow-4 {
