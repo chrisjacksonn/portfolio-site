@@ -8,7 +8,7 @@ export const projectsData = [
     year: "2026",
     timeline: "May 2026 - Aug. 2026",
     jobTitle: "Software Engineer Intern",
-    description: "Working on Shop Campaigns, Shopify's pay-per-sale customer acquisition product, on the Ads Channels team.",
+    description: "Working on Shop Campaigns, Shopify's pay-per-sale customer acquisition product.",
     image: "./images/ShopifyBg.webp"
   },
   {
@@ -17,7 +17,7 @@ export const projectsData = [
     year: "2026",
     timeline: "Sep. 2025 - Present",
     jobTitle: "Machine Learning Engineer",
-    description: "Built FORTif.ai, a multimodal AI platform for safer independent living; research presented at CUCAI 2026.",
+    description: "Built FORTif.ai, a multimodal AI platform for safer independent living.",
     image: "./images/WataiHero.webp",
     tech: "Python, LLMs, RAG, Gemini, Weaviate, Computer Vision, YOLOv8, SAM3, FastAPI, Twilio"
   },
@@ -47,7 +47,7 @@ export const projectsData = [
     year: "2025",
     timeline: "Jun. 2025 - Present",
     jobTitle: "AI Software Engineer",
-    description: "Building an AI-powered financial platform for investment research and portfolio management.",
+    description: "Building an AI-powered investment research and portfolio platform.",
     image: "./images/EncoreHero.webp",
     tech: "TypeScript, React, Node.js, AI Integration, PDF Processing, Tailwind CSS"
   },
