@@ -1483,11 +1483,6 @@ body {
   width: 100%;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Loading animation for images */
 .project-image::before {
   content: "";
