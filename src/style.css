@@ -244,8 +244,8 @@ body {
 
 .project-3 .project-image:hover {
   /* Encore */
-  box-shadow: 0 0 40px 8px rgba(218, 108, 53, 0.65),
-    0 0 20px 4px rgba(218, 108, 53, 0.5), 0 0 12px 2px rgba(218, 108, 53, 0.35);
+  box-shadow: 0 0 40px 8px rgba(64, 142, 150, 0.65),
+    0 0 20px 4px rgba(64, 142, 150, 0.5), 0 0 12px 2px rgba(64, 142, 150, 0.35);
 }
 
 .project-4 .project-image:hover {
@@ -283,8 +283,8 @@ body {
 
 .project-3:has(.project-title:hover) .project-image {
   /* Encore */
-  box-shadow: 0 0 40px 8px rgba(218, 108, 53, 0.65),
-    0 0 20px 4px rgba(218, 108, 53, 0.5), 0 0 12px 2px rgba(218, 108, 53, 0.35);
+  box-shadow: 0 0 40px 8px rgba(64, 142, 150, 0.65),
+    0 0 20px 4px rgba(64, 142, 150, 0.5), 0 0 12px 2px rgba(64, 142, 150, 0.35);
 }
 
 .project-4:has(.project-title:hover) .project-image {
