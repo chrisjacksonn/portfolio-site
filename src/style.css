@@ -1368,8 +1368,9 @@ body {
   object-fit: contain;
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 24px rgba(47, 107, 74, 0.55))
-    drop-shadow(0 0 44px rgba(47, 107, 74, 0.35)); /* forest green from the hero image */
+  filter: drop-shadow(0 0 18px rgba(47, 107, 74, 0.85))
+    drop-shadow(0 0 36px rgba(47, 107, 74, 0.6))
+    drop-shadow(0 0 70px rgba(47, 107, 74, 0.4)); /* forest green from the hero image */
 }
 
 .project-detail-image-container.project-glow-2 {
