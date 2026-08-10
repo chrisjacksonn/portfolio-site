@@ -299,6 +299,18 @@ body {
     0 0 20px 4px rgba(11, 102, 146, 0.6), 0 0 12px 2px rgba(11, 102, 146, 0.45);
 }
 
+.project-7 .project-image:hover {
+  /* Shopify */
+  box-shadow: 0 0 40px 8px rgba(47, 107, 74, 0.8),
+    0 0 20px 4px rgba(47, 107, 74, 0.55), 0 0 12px 2px rgba(47, 107, 74, 0.4);
+}
+
+.project-7:has(.project-title:hover) .project-image {
+  /* Shopify */
+  box-shadow: 0 0 40px 8px rgba(47, 107, 74, 0.8),
+    0 0 20px 4px rgba(47, 107, 74, 0.55), 0 0 12px 2px rgba(47, 107, 74, 0.4);
+}
+
 .project-image img {
   width: 100%;
   height: 100%;
@@ -308,6 +320,11 @@ body {
   transform: scale(
     1.15
   ); /* compensate for transparent edges in source images */
+}
+
+/* Shopify (id 7) card image is pre-cropped to exactly 2:1, show it without zoom */
+.project-7 .project-image img {
+  transform: none;
   transition: none;
 }
 
@@ -1339,8 +1356,20 @@ body {
   box-shadow: 0 0 40px 8px rgba(255, 206, 26, 0.65); /* FFCE1A for WAT.ai */
 }
 
-.project-detail-image-container.project-glow-7 {
-  box-shadow: 0 0 40px 8px rgba(150, 191, 72, 0.5); /* 96BF48 for Shopify */
+/* Shopify (id 7) detail: transparent laptop floats on the page */
+.project-detail-image-container.shopify-detail {
+  background: transparent !important;
+  aspect-ratio: auto;
+  overflow: visible;
+  box-shadow: none !important;
+}
+
+.shopify-image {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 24px rgba(47, 107, 74, 0.55))
+    drop-shadow(0 0 44px rgba(47, 107, 74, 0.35)); /* forest green from the hero image */
 }
 
 .project-detail-image-container.project-glow-2 {
