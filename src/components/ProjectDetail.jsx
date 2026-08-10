@@ -22,6 +22,7 @@ const ProjectDetail = ({ project, onBack }) => {
 
   const getProjectLink = (projectId) => {
     const links = {
+      7: 'https://www.shopify.com/ca/shop-campaigns', // Shopify
       1: 'https://github.com/FORTif-ai', // WAT.ai
       3: 'https://encorefinancialgroup.ca/', // Encore
       4: 'https://aeonstellar.co/', // Aeon
@@ -33,6 +34,7 @@ const ProjectDetail = ({ project, onBack }) => {
   }
 
   const getImageTransform = (projectId) => {
+    if (projectId === 7) return 'none' // Shopify: preserve true shape without scaling
     if (projectId === 1) return 'none' // WAT.ai: preserve true shape without scaling
     if (projectId === 4) return 'none' // Aeon: preserve true shape without scaling
     if (projectId === 5) return 'scale(1.0)' // GradePad: zoom on project page (slightly smaller)
@@ -88,15 +90,24 @@ const ProjectDetail = ({ project, onBack }) => {
             <h4>Synopsis</h4>
             <p>{project.synopsis || project.description}</p>
           </div>
-          <div className="detail-meta-group detail-tools-section">
-            <h4>Tools & Skills</h4>
-            <div className="detail-tools">
-              {(project.tech || '').split(',').map(t => (
-                <span key={t.trim()} className="tool-chip">{t.trim()}</span>
-              ))}
+          {project.tech && (
+            <div className="detail-meta-group detail-tools-section">
+              <h4>Tools & Skills</h4>
+              <div className="detail-tools">
+                {project.tech.split(',').map(t => (
+                  <span key={t.trim()} className="tool-chip">{t.trim()}</span>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
+
+        {project.id === 7 && (
+          <div className="about-this-role-section">
+            <h4>About This Role</h4>
+            <p>I spent a 2026 work term at Shopify as a <strong>Software Engineer Intern</strong> on the <strong>Ads Channels</strong> team, working on <a href="https://www.shopify.com/ca/shop-campaigns" target="_blank" rel="noopener noreferrer" className="team-member-link">Shop Campaigns</a>, Shopify's customer acquisition product. Merchants set a target cost per acquisition and pay only when a shopper actually buys, and the system places ads across the Shop app, the Shopify Product Network, and external channels like Meta, Google, and ChatGPT. The product has driven over 10 million attributed sales.</p>
+          </div>
+        )}
 
         {project.id === 1 && (
           <div className="about-this-role-section">

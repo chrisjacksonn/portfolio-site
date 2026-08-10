@@ -3,6 +3,14 @@ import ProjectCard from './ProjectCard'
 
 export const projectsData = [
   {
+    id: 7,
+    title: "Shopify",
+    year: "2026",
+    jobTitle: "Software Engineer Intern",
+    description: "Working on Shop Campaigns, Shopify's pay-per-sale customer acquisition product, on the Ads Channels team.",
+    image: "./images/ShopifyBg.webp"
+  },
+  {
     id: 1,
     title: "WAT.ai",
     year: "2026",

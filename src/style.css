@@ -925,6 +925,11 @@ body {
   margin-top: 3rem;
 }
 
+/* Shopify project (id 7): lower the meta section */
+.project-detail-content:has(.project-glow-7) .detail-meta {
+  margin-top: 4.5rem;
+}
+
 /* Aeon (id 4) detail: preserve true image shape and transparency */
 .aeon-detail {
   background: transparent;
@@ -1362,6 +1367,10 @@ body {
 /* Project-specific glow effects for detail pages */
 .project-detail-image-container.project-glow-1 {
   box-shadow: 0 0 40px 8px rgba(255, 206, 26, 0.65); /* FFCE1A for WAT.ai */
+}
+
+.project-detail-image-container.project-glow-7 {
+  box-shadow: 0 0 40px 8px rgba(150, 191, 72, 0.5); /* 96BF48 for Shopify */
 }
 
 .project-detail-image-container.project-glow-2 {
