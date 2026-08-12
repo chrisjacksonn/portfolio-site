@@ -171,7 +171,7 @@ const ProjectDetail = ({ project, onBack }) => {
         {project.id === 2 && (
           <div className="about-this-role-section">
             <h4>About This Role</h4>
-            <p>I did two internships at QQuote in 2025. In the winter term I worked with <a href="https://www.linkedin.com/in/nathan-hufnagel-a3b5bb35/" target="_blank" rel="noopener noreferrer" className="team-member-link">Nathan Hufnagel</a> on <strong>product management</strong> and the <strong>full product lifecycle</strong>, from designing features to testing them. I liked it enough that I came back in the fall to get hands-on with the code, focused on <strong>API development</strong>, <strong>database optimization</strong>, and <strong>QA automation</strong>.</p>
+            <p>I did two internships at QQuote in 2025. In the winter term I worked with <a href="https://www.linkedin.com/in/nathan-hufnagel-a3b5bb35/" target="_blank" rel="noopener noreferrer" className="team-member-link">Nathan Hufnagel</a> on <strong>product management</strong> and the <strong>full product lifecycle</strong>, from designing features to testing them. I liked it enough that I came back in the fall to get hands-on with the code, focused on <strong>API development</strong> and <strong>database optimization</strong>.</p>
 
             <div className="role-subsection">
               <h5>What I Worked On</h5>

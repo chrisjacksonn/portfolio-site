@@ -37,19 +37,9 @@ export const projectsData = [
     year: "2025",
     timeline: "Jan. - Apr. 2025\nSep. - Dec. 2025",
     jobTitle: "Software Engineering Intern",
-    description: "Two internships spanning software engineering, QA automation, and product management.",
+    description: "Two internships spanning software engineering and product management.",
     image: "./images/QQuoteBg.webp",
-    tech: "PHP, SQL, Postman, Swagger, QA Automation, Figma, Product Management, Power BI, RUM Tracking"
-  },
-  {
-    id: 3,
-    title: "Encore Financial Ltd",
-    year: "2025",
-    timeline: "Jun. 2025 - Present",
-    jobTitle: "AI Software Engineer",
-    description: "Building an AI-powered investment research and portfolio platform.",
-    image: "./images/EncoreHero.webp",
-    tech: "TypeScript, React, Node.js, AI Integration, PDF Processing, Tailwind CSS"
+    tech: "PHP, SQL, Postman, Swagger, Figma, Product Management, Power BI, RUM Tracking"
   },
   {
     id: 4,
@@ -60,6 +50,16 @@ export const projectsData = [
     description: "Developed subscription paywall system for Canada's first AI-powered dietary marketplace.",
     image: "./images/AeonHero.webp",
     tech: "React.js, Stripe, Firebase, Figma, API Integration, Payment Systems, Subscription Management, UX Design"
+  },
+  {
+    id: 3,
+    title: "Encore Financial Ltd",
+    year: "2025",
+    timeline: "Jun. 2025 - Present",
+    jobTitle: "AI Software Engineer",
+    description: "Building an AI-powered investment research and portfolio platform.",
+    image: "./images/EncoreHero.webp",
+    tech: "TypeScript, React, Node.js, AI Integration, PDF Processing, Tailwind CSS"
   }
 ]
 
