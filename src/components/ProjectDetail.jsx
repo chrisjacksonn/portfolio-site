@@ -114,7 +114,7 @@ const ProjectDetail = ({ project, onBack }) => {
               <p>The system I worked on composes branded overlay images onto product photos and serves them through a partner product feed. It splits into three layers that stay out of each other's way: <strong>authoring</strong>, where an operator imports a vector design and locks a revision; a <strong>render engine</strong> that runs off the request path as one idempotent job per item; and <strong>feed serving</strong>, which does a single bounded index lookup and nothing else.</p>
               <DiagramFigure
                 src="./images/shopify-architecture.svg"
-                alt="Overlay image pipeline: authoring, render engine, and feed serving"
+                alt="Overlay image pipeline"
                 caption="Three layers, with the render engine deliberately sitting between authoring and serving so neither one blocks on rasterization."
               />
               <p>Two constraints drove most of the shape. Nothing renders inline, so authoring stays fast and a bulk run stays resumable. And the request path stays cheap: by the time a feed request arrives the image is already a finished object in storage, so serving is a lookup rather than a render.</p>
