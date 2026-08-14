@@ -114,7 +114,7 @@ const ProjectDetail = ({ project, onBack }) => {
               <p>The system I worked on composes branded overlay images onto product photos and serves them through a partner product feed. It splits into three layers that stay out of each other's way: <strong>authoring</strong>, where an operator imports a vector design and locks a revision; a <strong>render engine</strong> that runs off the request path as one idempotent job per item; and <strong>feed serving</strong>, which does a single bounded index lookup and nothing else.</p>
               <DiagramFigure
                 src="./images/shopify-architecture.svg"
-                alt="Overlay image pipeline"
+                alt="System Architecture"
                 caption="Three layers, with the render engine deliberately sitting between authoring and serving so neither one blocks on rasterization."
               />
               <p>Two constraints drove most of the shape. Nothing renders inline, so authoring stays fast and a bulk run stays resumable. And the request path stays cheap: by the time a feed request arrives the image is already a finished object in storage, so serving is a lookup rather than a render.</p>
@@ -125,7 +125,7 @@ const ProjectDetail = ({ project, onBack }) => {
               <p>Most of the real work was in the edge cases. Every image gets a <strong>composition digest</strong> that decides whether it needs rendering at all, and what that digest includes, or deliberately leaves out, sets how much re-rendering a small change causes. Referencing the product image by path and version instead of by URL means a CDN change doesn't invalidate every digest. Leaving placement out of the identity means unbinding and rebinding doesn't force a full re-render.</p>
               <DiagramFigure
                 src="./images/shopify-invariants.svg"
-                alt="Invariants and edge cases"
+                alt="Invariants and Edge Cases"
                 caption="The dark spine is the happy path. Each branch is a rule, paired with the specific failure it exists to prevent."
               />
               <p>Failure behaviour is split on purpose. Authoring and rendering <strong>fail closed</strong>, because incorrect pixels published under a live tag can't be corrected by a retry. Feed serving <strong>fails open</strong>, because a degraded overlay subsystem should never degrade a merchant's listing, and a kill switch can drop the lookup entirely without touching a single row.</p>
