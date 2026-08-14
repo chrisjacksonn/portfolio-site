@@ -1720,14 +1720,8 @@ body {
   display: none;
 }
 
-/* Cursor advertises what a click does: zoom in while there is room to zoom,
-   falling back to the grab hand at full zoom where panning is all that is
-   left. Order matters, the panning rules below have to win while dragging. */
-.diagram-overlay-scroll.is-zoomable img {
-  cursor: zoom-in;
-}
-
-.diagram-overlay-scroll.is-pannable {
+/* Always the grab hand, closing to a fist while dragging */
+.diagram-overlay-scroll {
   cursor: grab;
 }
 

@@ -281,7 +281,7 @@ const DiagramFigure = ({ src, alt, caption }) => {
           </div>
 
           <div
-            className={`diagram-overlay-scroll ${canZoomIn ? 'is-zoomable' : ''} ${canZoomOut ? 'is-pannable' : ''} ${isPanning ? 'is-panning' : ''}`}
+            className={`diagram-overlay-scroll ${isPanning ? 'is-panning' : ''}`}
             ref={scrollRef}
             onClick={handleBackdropClick}
             onPointerDown={handlePointerDown}
