@@ -1637,22 +1637,31 @@ body {
 }
 
 .diagram-overlay-bar {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 1rem;
   padding: 0.85rem 1.1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   flex-shrink: 0;
 }
 
+/* Centred on the bar itself, not on the space left over beside the buttons,
+   so the title doesn't drift as the button group changes width */
 .diagram-overlay-title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: calc(100% - 15rem);
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.75);
-  text-align: left;
+  text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  pointer-events: none;
 }
 
 .diagram-overlay-actions {
