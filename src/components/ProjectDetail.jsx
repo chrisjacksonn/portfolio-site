@@ -125,7 +125,7 @@ const ProjectDetail = ({ project, onBack }) => {
               <p>Most of the real work was in the edge cases. Every image gets a <strong>composition digest</strong> that decides whether it needs rendering at all, and what that digest includes, or deliberately leaves out, sets how much re-rendering a small change causes. Referencing the product image by path and version instead of by URL means a CDN change doesn't invalidate every digest. Leaving placement out of the identity means unbinding and rebinding doesn't force a full re-render.</p>
               <DiagramFigure
                 src="./images/shopify-invariants.svg"
-                alt="One image through its lifecycle, with the invariant enforced at each step"
+                alt="Invariants and edge cases"
                 caption="The dark spine is the happy path. Each branch is a rule, paired with the specific failure it exists to prevent."
               />
               <p>Failure behaviour is split on purpose. Authoring and rendering <strong>fail closed</strong>, because incorrect pixels published under a live tag can't be corrected by a retry. Feed serving <strong>fails open</strong>, because a degraded overlay subsystem should never degrade a merchant's listing, and a kill switch can drop the lookup entirely without touching a single row.</p>
