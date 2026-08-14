@@ -1,4 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
+import DiagramFigure from './DiagramFigure'
 
 const ProjectDetail = ({ project, onBack }) => {
   const [showBackToTop, setShowBackToTop] = useState(false)
@@ -107,6 +108,28 @@ const ProjectDetail = ({ project, onBack }) => {
           <div className="about-this-role-section">
             <h4>About This Role</h4>
             <p>I spent a 2026 work term at Shopify as a <strong>Software Engineer Intern</strong> on the <strong>Ads Channels</strong> team, working on <a href="https://www.shopify.com/ca/shop-campaigns" target="_blank" rel="noopener noreferrer" className="team-member-link">Shop Campaigns</a>, Shopify's customer acquisition product. Merchants set a target cost per acquisition and pay only when a shopper actually buys, and the system places ads across the Shop app, the Shopify Product Network, and external channels like Meta, Google, and ChatGPT. The product has driven over 10 million attributed sales.</p>
+
+            <div className="role-subsection">
+              <h5>System Architecture</h5>
+              <p>The system I worked on composes branded overlay images onto product photos and serves them through a partner product feed. It splits into three layers that stay out of each other's way: <strong>authoring</strong>, where an operator imports a vector design and locks a revision; a <strong>render engine</strong> that runs off the request path as one idempotent job per item; and <strong>feed serving</strong>, which does a single bounded index lookup and nothing else.</p>
+              <DiagramFigure
+                src="./images/shopify-architecture.svg"
+                alt="Overlay image pipeline: authoring, render engine, and feed serving"
+                caption="Three layers, with the render engine deliberately sitting between authoring and serving so neither one blocks on rasterization."
+              />
+              <p>Two constraints drove most of the shape. Nothing renders inline, so authoring stays fast and a bulk run stays resumable. And the request path stays cheap: by the time a feed request arrives the image is already a finished object in storage, so serving is a lookup rather than a render.</p>
+            </div>
+
+            <div className="role-subsection">
+              <h5>Invariants and Edge Cases</h5>
+              <p>Most of the real work was in the edge cases. Every image gets a <strong>composition digest</strong> that decides whether it needs rendering at all, and what that digest includes, or deliberately leaves out, sets how much re-rendering a small change causes. Referencing the product image by path and version instead of by URL means a CDN change doesn't invalidate every digest. Leaving placement out of the identity means unbinding and rebinding doesn't force a full re-render.</p>
+              <DiagramFigure
+                src="./images/shopify-invariants.svg"
+                alt="One image through its lifecycle, with the invariant enforced at each step"
+                caption="The dark spine is the happy path. Each branch is a rule, paired with the specific failure it exists to prevent."
+              />
+              <p>Failure behaviour is split on purpose. Authoring and rendering <strong>fail closed</strong>, because incorrect pixels published under a live tag can't be corrected by a retry. Feed serving <strong>fails open</strong>, because a degraded overlay subsystem should never degrade a merchant's listing, and a kill switch can drop the lookup entirely without touching a single row.</p>
+            </div>
           </div>
         )}
 

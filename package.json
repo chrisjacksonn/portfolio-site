@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "diagrams": "npx -y @mermaid-js/mermaid-cli@11 -i diagrams/shopify-architecture.mmd -o public/images/shopify-architecture.svg -b '#FFFFFF' && npx -y @mermaid-js/mermaid-cli@11 -i diagrams/shopify-invariants.mmd -o public/images/shopify-invariants.svg -b '#FFFFFF' && node diagrams/fix-svg-size.mjs",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {

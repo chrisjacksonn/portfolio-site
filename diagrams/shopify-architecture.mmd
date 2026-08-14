@@ -1,0 +1,90 @@
+---
+config:
+  flowchart:
+    htmlLabels: false
+    curve: linear
+    nodeSpacing: 40
+    rankSpacing: 85
+    subGraphTitleMargin:
+      top: 4
+      bottom: 14
+---
+flowchart LR
+
+  subgraph A [1 · Authoring · creates durable work; no inline rendering]
+    U(["Operator"])
+    IMP[/"Vector import from a design tool<br/>Parsed server-side into a canonical manifest.<br/>No design-tool credentials in the backend."/]
+    VAL{"Manifest validator<br/>Canvas and aspect, exactly one product slot,<br/>digest-pinned assets, supported styles only"}
+    DSN[("overlay_designs<br/>Library row. Groups revisions.")]
+    REV[("design_revisions<br/>Draft to locked to archived, monotonic.<br/>design_digest: render-equivalent designs<br/>hash equal. Editing a locked revision<br/>forks a new one.")]
+    PLC[("placement_rules<br/>Desired state: this item set uses this<br/>locked revision for this output slot.<br/>No inline render or publish.")]
+    CMP["Runtime compiler<br/>Locked revision plus pinned asset manifest<br/>to deterministic artifact bytes.<br/>Asset digest mismatch fails compilation."]
+    ART[("Artifact store<br/>Create-only writes, opaque paths.<br/>Returns a stable ref and content hash.")]
+    U --> IMP
+    IMP --> VAL
+    VAL --> DSN
+    DSN --> REV
+    U --> PLC
+    REV --> CMP
+    CMP --> ART
+  end
+
+  subgraph B [2 · Render engine · off the request path, one idempotent job per item]
+    BATCH[("render_batches<br/>One coarse row per bulk run.<br/>Batched counters, no per-item rows.<br/>Resumable and idempotent.")]
+    ENUM["Item-set enumerator<br/>Paginates the partner item set, maps external<br/>item id to internal variant identity, returns<br/>resolved, skipped and unresolved counts."]
+    COMP["Composition resolver<br/>Versioned hash over artifact ref and hash,<br/>product image path and version, crop and focal<br/>inputs, contract version. Product image is<br/>referenced as path and version, not as a URL."]
+    SKIP{"Object already present<br/>at the derived key?"}
+    RAS["Rasterizer<br/>Pinned version. Containment: no network access,<br/>no external entity resolution, hard caps on<br/>memory, wall time and output dimensions."]
+    UPL["Conditional create upload<br/>If-absent precondition. An object that already<br/>exists is treated as success, since two jobs<br/>with the same digest produce identical bytes."]
+    OUT[("image_outputs<br/>Immutable output record: identity, digests,<br/>storage key, public URL, checksum, lifecycle")]
+    BATCH --> ENUM
+    ENUM --> COMP
+    COMP --> SKIP
+    SKIP -->|"Miss · render"| RAS
+    SKIP -->|"Hit · reuse published object"| OUT
+    RAS --> UPL
+    UPL --> OUT
+  end
+
+  subgraph C [3 · Feed serving · bounded read, fail-open]
+    IDX[("feed_image_index<br/>One current row per catalog item and slot.<br/>Composition digest, object path, active state,<br/>priority, overlay_tag.<br/>Current state only, updated in place.")]
+    RES["Index resolver<br/>The only overlay read on the request path.<br/>One bounded batched lookup,<br/>behind a kill switch."]
+    SER["Payload serializer<br/>Merchant primary image is preserved.<br/>Merchant additional images are preserved.<br/>Generated images are appended under their own<br/>externally selectable tag while capacity remains."]
+    API["Partner feed API<br/>Fetches finished static images directly from<br/>object storage. No request-time renderer."]
+    IDX --> RES
+    RES --> SER
+    SER --> API
+  end
+
+  FO["Fail-open · feed serving layer only<br/>Resolver error or kill switch: serialize the<br/>merchant's own images and continue.<br/>A degraded overlay subsystem must not<br/>degrade a merchant's listing."]
+  FC["Fail-closed · authoring and render layers<br/>Unverified artifact, digest mismatch or failed<br/>rasterization: no render, no publish.<br/>Incorrect pixels published under a live tag<br/>cannot be corrected by retry."]
+  KS["Kill switch · request path<br/>Disables the index lookup entirely.<br/>No rows are modified, instantly reversible,<br/>merchant images unaffected."]
+
+  PLC --> BATCH
+  ART --> COMP
+  OUT --> IDX
+  ART -.->|"Artifact verified against its signed<br/>hash before every render"| RAS
+  FC -.-> CMP
+  FC -.-> RAS
+  FO -.-> RES
+  KS -.-> RES
+
+  style A fill:none,stroke:none
+  style B fill:none,stroke:none
+  style C fill:none,stroke:none
+
+  classDef store  fill:#EEF2FF,stroke:#8FA3C4,stroke-width:1px,color:#1E293B
+  classDef proc   fill:#DCFCE7,stroke:#5BAE7F,stroke-width:1px,color:#0B3D25
+  classDef gate   fill:#FFFFFF,stroke:#64748B,stroke-width:1.5px,color:#0F172A
+  classDef render fill:#FFE4D0,stroke:#E08A4E,stroke-width:1px,color:#4A2308
+  classDef note   fill:#FEF9E7,stroke:#D9C68A,stroke-width:1px,color:#3F3417
+  classDef switch fill:#EDE4FA,stroke:#9C7BC7,stroke-width:1.5px,color:#33204D
+
+  class DSN,REV,PLC,ART,BATCH,OUT,IDX store
+  class U,IMP,CMP,ENUM,COMP,UPL,RES,SER,API proc
+  class VAL,SKIP gate
+  class RAS render
+  class FO,FC note
+  class KS switch
+
+  linkStyle default stroke-width:1.5px

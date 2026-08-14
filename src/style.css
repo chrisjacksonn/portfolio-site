@@ -1554,3 +1554,219 @@ body {
     background-position: -200% 0;
   }
 }
+
+/* Architecture diagrams: light-background SVGs on a dark page, previewed
+   inline at column width and read full size in an overlay */
+/* Bottom margin here rather than on the following paragraph, since
+   .about-this-role-section p is margin: 0 across every project page */
+.diagram-figure {
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.diagram-preview {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 0.75rem;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  cursor: zoom-in;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.12), 0 0 40px rgba(255, 255, 255, 0.06);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.diagram-preview:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px rgba(255, 255, 255, 0.2), 0 0 52px rgba(255, 255, 255, 0.1);
+}
+
+.diagram-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.diagram-expand-hint {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.82);
+  border-radius: 999px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.diagram-preview:hover .diagram-expand-hint,
+.diagram-preview:focus-visible .diagram-expand-hint {
+  opacity: 1;
+}
+
+.diagram-figure figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: left;
+}
+
+.diagram-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  background: rgba(6, 8, 14, 0.94);
+  backdrop-filter: blur(4px);
+  animation: diagram-fade-in 0.18s ease;
+}
+
+@keyframes diagram-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.diagram-overlay-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+}
+
+.diagram-overlay-title {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.diagram-overlay-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.diagram-overlay-actions button,
+.diagram-overlay-actions a {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.78rem;
+  font-family: inherit;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.diagram-overlay-actions button:hover:not(:disabled),
+.diagram-overlay-actions a:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.diagram-icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border-radius: 8px;
+}
+
+.diagram-icon-button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.diagram-overlay-close {
+  margin-left: 0.35rem;
+}
+
+/* position relative so the image's offsetLeft/offsetTop are measured against
+   this box, which is what the zoom-anchor math assumes */
+.diagram-overlay-scroll {
+  position: relative;
+  flex: 1;
+  display: flex;
+  overflow: auto;
+  padding: 1.25rem;
+  overscroll-behavior: contain;
+  /* Still scrollable, just no visible bars: dragging is how you move around,
+     and a scrollbar across a full-bleed diagram reads as part of the image */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.diagram-overlay-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Cursor advertises what a click does: zoom in while there is room to zoom,
+   falling back to the grab hand at full zoom where panning is all that is
+   left. Order matters, the panning rules below have to win while dragging. */
+.diagram-overlay-scroll.is-zoomable img {
+  cursor: zoom-in;
+}
+
+.diagram-overlay-scroll.is-pannable {
+  cursor: grab;
+}
+
+.diagram-overlay-scroll.is-panning,
+.diagram-overlay-scroll.is-panning img {
+  cursor: grabbing;
+  user-select: none;
+}
+
+/* margin auto rather than justify/align centering: it centers the image while
+   it fits and still lets both overflow edges be scrolled to once magnified.
+   flex-shrink 0 matters: as a flex item the image would otherwise be shrunk
+   back toward the container, and min-width:auto floors that at the SVG's
+   intrinsic width, which silently caps magnification at 1:1 */
+.diagram-overlay-scroll img {
+  display: block;
+  flex: 0 0 auto;
+  margin: auto;
+  -webkit-user-drag: none;
+  user-select: none;
+  max-width: none;
+  max-height: none;
+  height: auto;
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .diagram-expand-hint {
+    opacity: 1;
+  }
+
+  .diagram-overlay-title {
+    display: none;
+  }
+
+  .diagram-overlay-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

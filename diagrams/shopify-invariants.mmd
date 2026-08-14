@@ -1,0 +1,124 @@
+---
+config:
+  flowchart:
+    htmlLabels: false
+    curve: linear
+    nodeSpacing: 34
+    rankSpacing: 70
+---
+flowchart LR
+
+  S1["1 · Trigger<br/>an item needs an image"]
+  S2["2 · Compose identity<br/>composition_digest"]
+  S3{"3 · Already<br/>published?"}
+  S4["4 · Rasterize<br/>in containment"]
+  S5{"5 · Still<br/>current?"}
+  S6["6 · Publish<br/>index row + feed update"]
+  S7["7 · Serve<br/>payload assembly"]
+  S8["8 · Retire<br/>deactivate tag"]
+
+  S1 --> S2
+  S2 --> S3
+  S3 -->|Miss| S4
+  S4 --> S5
+  S5 -->|Yes| S6
+  S6 --> S7
+  S7 --> S8
+
+  T1(["Placement activated"])
+  T2(["Product image replaced"])
+  T3(["Reconciliation sweep"])
+  T4(["Revision switch"])
+  T1 --> S1
+  T2 --> S1
+  T3 --> S1
+  T4 --> S1
+
+  I1["Image referenced as<br/>path + version, not URL"]
+  I2["Render-equivalent designs<br/>hash equal"]
+  I3["Placement excluded<br/>from identity"]
+  I1 --> S2
+  I2 --> S2
+  I3 --> S2
+  X1["Prevented: CDN change<br/>invalidating every digest"]
+  X2["Prevented: whole-set re-render<br/>on a cosmetic edit"]
+  X3["Prevented: full re-render<br/>on unbind then rebind"]
+  I1 --> X1
+  I2 --> X2
+  I3 --> X3
+
+  R1["Reuse published object<br/>no render"]
+  S3 -->|Hit| R1
+  R1 --> S6
+  R2{"Capacity free after<br/>merchant images?"}
+  S3 --> R2
+  R3["Skip render entirely"]
+  R2 -->|No| R3
+  X4["Prevented: render capacity spent<br/>on an image that cannot ship"]
+  R3 --> X4
+
+  C1["Caps on memory, wall time,<br/>dimensions · no network"]
+  C2["Golden images,<br/>pinned rasterizer"]
+  C3["Conditional create,<br/>if-absent"]
+  C1 --> S4
+  C2 --> S4
+  C3 --> S4
+  X5["Prevented: unbounded work<br/>or egress from a hostile file"]
+  X6["Prevented: silent pixel drift<br/>on a dependency upgrade"]
+  X7["Prevented: write conflict<br/>between identical renders"]
+  C1 --> X5
+  C2 --> X6
+  C3 --> X7
+
+  V1["Discard output,<br/>requeue"]
+  S5 -->|"No · source moved"| V1
+  V1 --> S2
+  X8["Prevented: stale image<br/>published as current"]
+  V1 --> X8
+
+  P1{"Job snapshot newer<br/>than current row?"}
+  P2{"Placement still<br/>active?"}
+  S6 --> P1
+  S6 --> P2
+  P3["Reject write"]
+  P4["Abandon write"]
+  P1 -->|No| P3
+  P2 -->|No| P4
+  X9["Prevented: delayed retry<br/>overwriting newer state"]
+  X10["Prevented: withdrawn<br/>overlay reinstated"]
+  P3 --> X9
+  P4 --> X10
+
+  F1["Merchant primary and<br/>additional images first"]
+  F2["Resolver error or kill switch:<br/>fail open"]
+  F1 --> S7
+  F2 --> S7
+  X11["Prevented: merchant image<br/>displaced by a generated one"]
+  X12["Prevented: overlay outage<br/>becoming a listing outage"]
+  F1 --> X11
+  F2 --> X12
+
+  E1["New tag published<br/>before old tag retired"]
+  E2["Objects deleted separately,<br/>after a grace window"]
+  E1 --> S8
+  E2 --> S8
+  X13["Prevented: one tag serving<br/>two different images"]
+  X14["Prevented: object deleted<br/>while still referenced"]
+  E1 --> X13
+  E2 --> X14
+
+  classDef spine fill:#1E293B,stroke:#0F172A,stroke-width:1.5px,color:#FFFFFF
+  classDef gate  fill:#FFFFFF,stroke:#475569,stroke-width:1.5px,color:#0F172A
+  classDef trig  fill:#E8EDFA,stroke:#8FA3C4,stroke-width:1px,color:#1E293B
+  classDef rule  fill:#FEF3C7,stroke:#D9A441,stroke-width:1px,color:#3F2E00
+  classDef alt   fill:#DCFCE7,stroke:#5BAE7F,stroke-width:1px,color:#0B3D25
+  classDef prev  fill:#FBE9E9,stroke:#C88A8A,stroke-width:1.25px,color:#5A1414
+
+  class S1,S2,S4,S6,S7,S8 spine
+  class S3,S5,R2,P1,P2 gate
+  class T1,T2,T3,T4 trig
+  class I1,I2,I3,C1,C2,C3,F1,F2,E1,E2 rule
+  class R1,R3,V1,P3,P4 alt
+  class X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14 prev
+
+  linkStyle 0,1,2,3,4,5,6 stroke:#0F172A,stroke-width:2.5px
