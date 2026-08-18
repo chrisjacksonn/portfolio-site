@@ -886,7 +886,7 @@ body {
 
 /* Encore project (id 3): meta sits 68px under visible image bottom */
 .project-detail-content:has(.project-glow-3) .detail-meta {
-  margin-top: -3.83rem;
+  margin-top: -6.93rem;
 }
 
 /* Gradepad project (id 5): lower the meta section */
@@ -1346,17 +1346,24 @@ body {
   }
 }
 
-/* Encore desk renders slightly larger than the standard frame */
+/* Encore desk renders slightly larger than the standard frame. Width and
+   pull-up are sized to the webp's canvas/object ratio (2094/1800), so the
+   visible laptop lands in the same place as before the glow was widened. */
 .project-detail-image-container.encore-detail {
-  max-width: 940px;
-  width: min(73vw, 940px);
-  transform: translateY(-70px);
+  max-width: 989px;
+  width: min(76.8vw, 989px);
+  transform: translateY(-95px);
 }
 
 @media (max-width: 768px) {
   .project-detail-image-container.encore-detail {
     width: 100%;
     transform: translateY(-46px);
+  }
+
+  /* Same fixed-rem problem as Shopify: see the note on .project-glow-7 */
+  .project-detail-content:has(.project-glow-3) .detail-meta {
+    margin-top: -18%;
   }
 }
 

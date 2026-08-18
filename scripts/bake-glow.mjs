@@ -21,7 +21,7 @@ import sharp from 'sharp'
 // [imageWidth, cssWidth, colour, [[cssRadius, opacity], ...]]
 const RECIPES = {
   // Verified against this script (Aug 2026).
-  encore: [1800, 940, { r: 64, g: 142, b: 150 }, [[20, 0.40], [45, 0.25]]],
+  encore: [1800, 940, { r: 64, g: 142, b: 150 }, [[18, 0.50], [36, 0.35], [70, 0.24]]],
   // Transcribed from the original bake, not re-verified against this script.
   qquote: [1600, 740, { r: 218, g: 108, b: 53 }, [[18, 0.50], [36, 0.35], [70, 0.24]]],
   watai: [2000, 950, { r: 255, g: 206, b: 26 }, [[18, 0.45], [36, 0.30], [70, 0.20]]],
