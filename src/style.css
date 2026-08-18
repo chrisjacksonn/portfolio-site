@@ -1339,6 +1339,11 @@ body {
     width: 100%;
     transform: translateY(-55px);
   }
+
+  /* Same fixed-rem problem as Shopify: see the note on .project-glow-7 */
+  .project-detail-content:has(.project-glow-2) .detail-meta {
+    margin-top: -27%;
+  }
 }
 
 /* Encore desk renders slightly larger than the standard frame */
@@ -1381,6 +1386,16 @@ body {
   .project-detail-image-container.shopify-detail {
     width: 100%;
     transform: translateY(-56px);
+  }
+
+  /* The desktop pull-up is a fixed -8.88rem, sized for the image at
+     min(70vw, 900px). On mobile the image is width 100%, so the transparent
+     glow margin baked into the webp scales with the viewport while a rem
+     value does not, and the meta ends up overlapping the laptop. A percentage
+     resolves against the container width, so it tracks the image at any
+     phone size. */
+  .project-detail-content:has(.project-glow-7) .detail-meta {
+    margin-top: -24%;
   }
 }
 
