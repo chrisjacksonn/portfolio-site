@@ -1,6 +1,12 @@
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 const ZOOM_STEP = 1.5
+// Wheel zoom, as an exponent per pixel of delta. A mouse notch is around 100px,
+// which puts one notch close to one button press. A trackpad pinch arrives as
+// ctrl + wheel with far smaller deltas, so it needs its own multiplier to cover
+// the same range in one gesture.
+const WHEEL_SENSITIVITY = 0.0035
+const PINCH_SENSITIVITY = 0.012
 // 1 means one image pixel per screen pixel, which is already fully legible for
 // these diagrams. Going past it means rasterizing a 12000px-wide SVG, which
 // locks up the renderer for long enough to feel broken.
@@ -74,24 +80,31 @@ const DiagramFigure = ({ src, alt, caption }) => {
   const zoomBy = useCallback((factor, clientX, clientY) => {
     const el = scrollRef.current
     const img = imageRef.current
-    if (!el || !img || scale === null || fitScale === null) return
-
-    const next = clamp(scale * factor, fitScale, MAX_SCALE)
-    if (next === scale) return
+    if (!el || !img || fitScale === null) return
 
     const imageRect = img.getBoundingClientRect()
     const boxRect = el.getBoundingClientRect()
     const pivotX = clientX ?? boxRect.left + boxRect.width / 2
     const pivotY = clientY ?? boxRect.top + boxRect.height / 2
 
-    anchorRef.current = {
-      fx: clamp((pivotX - imageRect.left) / imageRect.width, 0, 1),
-      fy: clamp((pivotY - imageRect.top) / imageRect.height, 0, 1),
-      pivotX,
-      pivotY
-    }
-    setScale(next)
-  }, [scale, fitScale])
+    // Applied against the live scale rather than the one this callback closed
+    // over. A trackpad pinch fires several events before React re-renders, and
+    // reading the closed-over value would make every one of them compute from
+    // the same starting scale, so all but the last would be discarded and the
+    // gesture would barely move.
+    setScale((current) => {
+      if (current === null) return current
+      const next = clamp(current * factor, fitScale, MAX_SCALE)
+      if (next === current) return current
+      anchorRef.current = {
+        fx: clamp((pivotX - imageRect.left) / imageRect.width, 0, 1),
+        fy: clamp((pivotY - imageRect.top) / imageRect.height, 0, 1),
+        pivotX,
+        pivotY
+      }
+      return next
+    })
+  }, [fitScale])
 
   // Put the anchored point back under the cursor once the new size is laid out
   useLayoutEffect(() => {
@@ -110,14 +123,41 @@ const DiagramFigure = ({ src, alt, caption }) => {
   useEffect(() => {
     const el = scrollRef.current
     if (!isOpen || !el) return
+
     const handleWheel = (e) => {
       e.preventDefault()
-      // Exponential so each notch is a constant ratio, and trackpad pinch
-      // (which arrives as ctrl + wheel) lands on the same curve
-      zoomBy(Math.exp(-deltaToPixels(e) * 0.0015), e.clientX, e.clientY)
+      // Exponential so each notch is a constant ratio wherever you already are.
+      // A trackpad pinch arrives as ctrl + wheel with far smaller deltas than a
+      // mouse notch, so it gets its own sensitivity.
+      const sensitivity = e.ctrlKey || e.metaKey ? PINCH_SENSITIVITY : WHEEL_SENSITIVITY
+      zoomBy(Math.exp(-deltaToPixels(e) * sensitivity), e.clientX, e.clientY)
     }
+
+    // Safari reports a trackpad pinch as its own gesture events instead of
+    // ctrl + wheel, with a scale that accumulates across the whole gesture
+    let gestureScale = 1
+    const handleGestureStart = (e) => {
+      e.preventDefault()
+      gestureScale = e.scale > 0 ? e.scale : 1
+    }
+    const handleGestureChange = (e) => {
+      e.preventDefault()
+      if (!(e.scale > 0)) return
+      zoomBy(e.scale / gestureScale, e.clientX, e.clientY)
+      gestureScale = e.scale
+    }
+    const handleGestureEnd = (e) => e.preventDefault()
+
     el.addEventListener('wheel', handleWheel, { passive: false })
-    return () => el.removeEventListener('wheel', handleWheel)
+    el.addEventListener('gesturestart', handleGestureStart, { passive: false })
+    el.addEventListener('gesturechange', handleGestureChange, { passive: false })
+    el.addEventListener('gestureend', handleGestureEnd, { passive: false })
+    return () => {
+      el.removeEventListener('wheel', handleWheel)
+      el.removeEventListener('gesturestart', handleGestureStart)
+      el.removeEventListener('gesturechange', handleGestureChange)
+      el.removeEventListener('gestureend', handleGestureEnd)
+    }
   }, [isOpen, zoomBy])
 
   const canZoomIn = scale !== null && scale < MAX_SCALE - 0.001
